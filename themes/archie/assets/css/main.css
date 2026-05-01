@@ -163,6 +163,11 @@ ul {
 
 ul li {
   text-indent: -2ch;
+  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+ul > li:not(:last-child) {
+  margin-bottom: 1em;
 }
 
 ul > li::before {
@@ -300,6 +305,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-block-start: 2em;
   margin-block-end: 0.5em;
   line-height: 1.2;
+}
+
+h2,h3 {
+  margin-bottom: 1.5em;
 }
 
 h1::before { color: var(--color-primary, #dc143c); content: '# '; }
