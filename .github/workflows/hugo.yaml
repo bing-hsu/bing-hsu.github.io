@@ -13,11 +13,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        # run command in <repo>/hugo_site
-        working-directory: hugo_site
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,8 +32,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # point to build folder in hugo_site
-          path: hugo_site/public
+          path: ./public
 
   deploy:
     environment:
