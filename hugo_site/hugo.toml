@@ -1,0 +1,4 @@
+baseURL = 'https://bing-hsu.github.io/'
+locale = 'en-us'
+title = "Bertram's Blog"
+theme = 'archie'
