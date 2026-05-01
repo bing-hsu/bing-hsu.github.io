@@ -2,3 +2,35 @@ baseURL = 'https://bing-hsu.github.io/'
 locale = 'en-us'
 title = "Bertram's Blog"
 theme = 'archie'
+# Social Tags
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/bing-hsu"
+
+[[params.social]]
+name = "X"
+icon = "twitter"
+url = "https://x.com/GBingxu"
+
+# Main menu Items
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 1
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 3
+
+[[menu.main]]
+name = "Search"
+url = "/search/"
+weight = 4
