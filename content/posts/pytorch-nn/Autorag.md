@@ -5,6 +5,7 @@ description = """A lightweight treatment to PyTorch' secrete sauce -
 Automatic Differentiation Engine"""
 draft = false
 math = true
+tags = ['pytorch']
 +++
 
 The `torch.autograd` package is PyTorch's automatic differentiation

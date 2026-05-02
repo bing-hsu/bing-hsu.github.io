@@ -3,6 +3,7 @@ date = '2026-05-02T18:23:41+08:00'
 draft = false
 title = 'Train vs Eval'
 description = 'Why `model.train()` and `model.eval()`?'
+tags = ['pytorch']
 +++
 
 Why PyTorch need `model.train()` and `model.eval()` modes?
