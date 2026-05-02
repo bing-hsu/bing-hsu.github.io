@@ -166,7 +166,12 @@ ul li {
   font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-ul > li:not(:last-child) {
+ol li {
+  /*text-indent: -2ch;*/
+  font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+ul > oi:not(:last-child) {
   margin-bottom: 1em;
 }
 
