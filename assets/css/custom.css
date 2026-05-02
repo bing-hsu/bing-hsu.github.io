@@ -1,0 +1,22 @@
+ul li {
+    text-indent: -2ch;
+    font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+ul > li:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+ol li {
+    /*text-indent: -2ch;*/
+    font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+ol > li:not(:last-child) {
+    margin-bottom: 1em;
+}
+
+strong {
+    font-family: Georgia, serif;
+}
+

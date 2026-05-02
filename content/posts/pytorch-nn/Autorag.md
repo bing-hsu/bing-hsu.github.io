@@ -1,6 +1,8 @@
 +++
 date = '2026-05-02T18:18:00+0800'
 title = 'Autorag in PyTorch'
+description = """A lightweight treatment to PyTorch' secrete sauce - 
+Automatic Differentiation Engine"""
 draft = false
 math = true
 +++
