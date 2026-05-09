@@ -1,10 +1,10 @@
 +++
 date = '2026-05-10T00:13:47+08:00'
-draft = false
 title = 'Interface in C++'
 description = """Interface in C++ looks pretty weird...
 if you come from Java/C# background. Let's see how it works in C++.
 """
+tags = ['cpp']
 +++
 
 Surprisingly without surprise, C++ has no dedicated `interface` keyword.
