@@ -1,6 +1,5 @@
 +++
 date = '2026-05-02T18:23:41+08:00'
-draft = false
 title = 'Train vs Eval'
 description = 'Why `model.train()` and `model.eval()`?'
 tags = ['pytorch']
@@ -25,17 +24,16 @@ it doesn't become over-reliant on a single "genius" neuron.
 - **`model.train()`**: Dropout is **Active**, you create adversary situation to
   help model to be robust.
 
-With **Dropout** in train time, the model can become more robust.
-However, you do not want to randomly shut down neurons for no reason
-during inference.
+With **Dropout** in train time, the model can become more robust. However, you
+do not want to randomly shut down neurons for no reason during inference.
 
 - **`model.eval()`**: Dropout is **Disabled**, you want the model to perform to
   its max, you do not want unnecessary obstacles.
 
 ## Batch Normalization
 
-Batch Norm layers normalize the data in batch-to-batch so the training is
-less sensitive to the scale of the input features.
+Batch Norm layers normalize the data in batch-to-batch so the training is less
+sensitive to the scale of the input features.
 
 - **`model.train()`**: The layer calculates the mean and variance of the
   **current batch** of data. It also keeps a running "diary" (moving average) of
@@ -57,8 +55,8 @@ dataset, not the current batch.
   killing neurons, and your Batch Norm might shift slightly based on the test
   data.
 - **If you forget `.train()` during training:** Ineffective Learn. Your model
-  will become fragile because Dropout won't be regularizing the network,
-  and Batch Norm won't be updating its understanding of your data distribution.
+  will become fragile because Dropout won't be regularizing the network, and
+  Batch Norm won't be updating its understanding of your data distribution.
 
 # Understanding: `model.eval()` vs. `torch.no_grad()`
 
@@ -66,7 +64,7 @@ They are often used together in inference-time environment, but they do
 different things.
 
 |                  | `model.eval()`                                                           | `torch.no_grad()`                                                                  |
-|:-----------------|:-------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| :--------------- | :----------------------------------------------------------------------- | :--------------------------------------------------------------------------------- |
 | **What it does** | Changes the _behavior_ of layers (Dropout, BatchNorm).                   | Turns off Autograd, no longer tracking tensor ops or computing partial derivatives |
 | **Impact**       | Turn-off train-time-only features / Turn-on inference-time-only features | Saves memory and speeds up computation.                                            |
 | **Requirement**  | Required in inference time                                               | Optional, but highly recommended.                                                  |
