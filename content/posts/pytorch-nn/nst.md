@@ -9,6 +9,9 @@ Neural Style Transfer in PyTorch, covering content and style loss, Gram matrices
 """
 +++
 
+> Original Paper:
+> [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576)
+
 This task involves three images:
 
 1. Content Image $C$: the image whose content we want to preserve.
