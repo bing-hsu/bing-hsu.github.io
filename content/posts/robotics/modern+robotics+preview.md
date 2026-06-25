@@ -8,8 +8,8 @@ description = """A preview of Modern Robotics covering the fundamental building 
 > This is a preview of reading the book: "Modern Robotics: Mechanics, Planning,
 > and Control" by Kevin Lynch and Frank
 
-Our focus in this book is on mechanics, planning, and control for **Robot
-Mechanisms / 机器人结构**.
+Our focus is on mechanics, planning, and control for **Robot Mechanisms
+/ 机器人结构**.
 
 Basically, a mechanism is constructed by connecting rigid bodies, called
 **links**, together by means of **joints**, so that relative motion between

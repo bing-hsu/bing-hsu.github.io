@@ -12,8 +12,7 @@ as electric motors, deliver **forces or torques** that cause the robot’s links
 to move. Usually an **end-effector**, such as a gripper or hand for grasping and
 manipulating objects, is attached to a specific link.
 
-All the robots considered in this book have links that can be modeled as rigid
-bodies.
+All the robots considered here have links that can be modeled as rigid bodies.
 
 **Definition 2.1**: The
 <span style="color: #c94a4a;"><b>configuration</b></span> of a robot is a
