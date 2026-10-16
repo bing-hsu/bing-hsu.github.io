@@ -5,7 +5,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="site-shell">
 <header class="site-header">
-  <a class="wordmark" href="{{ "" | relURL }}" aria-label="Bertram's notebook, home">bertram<span class="wordmark-dot">.</span><span class="wordmark-caption">a technical notebook</span></a>
+  <a class="wordmark" href="{{ "" | relURL }}" aria-label="Bertram, data analytics and business thinking, home">bertram<span class="wordmark-dot">.</span><span class="wordmark-caption">analytics &amp; business thinking</span></a>
   <nav aria-label="Main navigation">
     <a href="{{ "posts/" | relURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>Writing</a>
     <a href="{{ "tags/" | relURL }}" {{ if eq .Section "tags" }}aria-current="page"{{ end }}>Topics</a>
@@ -13,7 +13,7 @@
   </nav>
 </header>
 <main id="main">{{ block "main" . }}{{ end }}</main>
-<footer class="site-footer"><div><a class="footer-name" href="{{ "" | relURL }}">bertram.</a><p>A notebook, always in progress.</p></div><nav aria-label="Elsewhere">{{ range .Site.Params.social }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ end }}<a href="{{ "index.xml" | relURL }}">RSS ↗</a></nav><span class="footer-note">Built with curiosity &amp; Hugo.</span></footer>
+<footer class="site-footer"><div><a class="footer-name" href="{{ "" | relURL }}">bertram.</a><p>Data. Context. Better decisions.</p></div><nav aria-label="Elsewhere">{{ range .Site.Params.social }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ end }}<a href="{{ "index.xml" | relURL }}">RSS ↗</a></nav><span class="footer-note">Independent thinking. Built with Hugo.</span></footer>
 </div>
 </body>
 </html>

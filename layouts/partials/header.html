@@ -1,10 +1,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}Bertram — A technical notebook{{ else }}{{ .Title }} · Bertram{{ end }}</title>
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · Bertram{{ end }}</title>
 <meta name="description" content="{{ .Description | default .Site.Params.description | plainify }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<meta property="og:title" content="{{ .Title }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ .Description | default .Site.Params.description | plainify }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -12,6 +12,6 @@
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 {{ $css := resources.Get "css/notebook.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
-{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="Bertram's notebook">{{ end }}
+{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="Bertram’s writing">{{ end }}
 {{ if .Params.math }}{{ partial "math.html" . }}{{ end }}
 </head>

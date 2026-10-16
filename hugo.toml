@@ -1,9 +1,9 @@
 baseURL = 'https://bing-hsu.github.io/'
 locale = 'en-us'
-title = "Bertram's Blog"
+title = "Bertram — Data Analytics & Business Thinking"
 # Presentation is owned by this project; no external theme is required.
 [params]
-  description = "Notes on deep learning, robotics, and the ideas underneath. A technical notebook by Bertram."
+  description = "Data analytics and business thinking by Bertram. Exploring how business context, clear analysis, and technical depth support better decisions."
   mainSections = ['posts']
 
 # Social Tags

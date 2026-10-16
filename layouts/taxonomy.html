@@ -1,4 +1,4 @@
 {{ define "main" }}
-<section class="page-intro"><p class="eyebrow">Follow your curiosity</p><h1>Topics<span class="accent">.</span></h1><p>Different paths into the same notebook. Pick an idea and start exploring.</p></section>
+<section class="page-intro"><p class="eyebrow">Ideas &amp; methods</p><h1>Topics<span class="accent">.</span></h1><p>Explore the technical foundations behind my work, from machine learning to programming.</p></section>
 <div class="topic-grid">{{ range .Data.Terms.Alphabetical }}<a class="topic-tile" href="{{ .Page.RelPermalink }}"><span class="eyebrow">{{ .Count }} {{ if eq .Count 1 }}entry{{ else }}entries{{ end }}</span><h2>{{ .Page.Title }}</h2><span class="topic-tile-arrow">↗</span></a>{{ end }}</div>
 {{ end }}

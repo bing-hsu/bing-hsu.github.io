@@ -1,6 +1,6 @@
-# Bertram's notebook
+# Bertram — Data Analytics & Business Thinking
 
-A custom Hugo site for technical writing, published with GitHub Pages. The design lives in this repository and does not require an external theme or a JavaScript framework.
+A personal site focused on data analytics and business thinking, built with Hugo and published with GitHub Pages. The design lives in this repository and does not require an external theme or a JavaScript framework.
 
 ## Local development
 
