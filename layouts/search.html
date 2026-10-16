@@ -1,0 +1,6 @@
+{{ define "main" }}
+<section class="page-intro"><p class="eyebrow">Find a thread</p><h1>Search the notebook<span class="accent">.</span></h1><p>Look for an idea, a topic, or that one line of code.</p></section>
+<section class="search-panel" data-search-root {{ with .OutputFormats.Get "json" }}data-search-index-url="{{ .RelPermalink }}"{{ end }}>
+<label class="eyebrow" for="search-query">What are you curious about?</label><input id="search-query" class="search-input" data-search-input type="search" name="q" autocomplete="off" aria-controls="search-results" aria-describedby="search-help search-status" placeholder="Try “robotics” or “PyTorch”…"><p id="search-help" class="search-hint">Search titles, tags, and full articles. Press <kbd>/</kbd> to focus.</p><p id="search-status" class="search-status" data-search-status role="status">Loading the notebook…</p><ul id="search-results" class="search-results" data-search-results></ul>
+</section><noscript><p>Search needs JavaScript. You can also <a href="{{ "posts/" | relURL }}">browse all writing</a>.</p></noscript><script defer src="{{ "js/search.js" | relURL }}"></script>
+{{ end }}

@@ -1,0 +1,2 @@
+{{- $dir := .File.Dir -}}
+{{- if strings.Contains $dir "pytorch-nn" -}}Deep learning{{- else if strings.Contains $dir "robotics" -}}Robotics{{- else if strings.Contains $dir "cpp" -}}C++{{- else -}}Notes{{- end -}}

@@ -1,7 +1,11 @@
 baseURL = 'https://bing-hsu.github.io/'
 locale = 'en-us'
 title = "Bertram's Blog"
-theme = 'archie'
+# Presentation is owned by this project; no external theme is required.
+[params]
+  description = "Notes on deep learning, robotics, and the ideas underneath. A technical notebook by Bertram."
+  mainSections = ['posts']
+
 # Social Tags
 
 [[params.social]]

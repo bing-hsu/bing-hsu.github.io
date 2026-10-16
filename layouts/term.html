@@ -1,0 +1,4 @@
+{{ define "main" }}
+<section class="page-intro"><a class="eyebrow back-link" href="{{ "tags/" | relURL }}">← All topics</a><h1>{{ .Title }}<span class="accent">.</span></h1><p>{{ len .Pages }} notes in this corner of the notebook.</p></section>
+{{ range .Pages.ByDate.Reverse }}{{ partial "entry.html" . }}{{ end }}
+{{ end }}

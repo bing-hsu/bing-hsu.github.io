@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article class="article">
+<header class="article-header"><a class="eyebrow back-link" href="{{ "posts/" | relURL }}">← All writing</a><div class="article-category eyebrow">{{ partial "topic.html" . }}</div><h1>{{ .Title }}</h1><p class="article-description">{{ .Description }}</p><div class="article-meta"><span>Bertram</span><span>·</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time><span>·</span><span>{{ .ReadingTime }} min read</span>{{ if .Draft }}<span>Draft</span>{{ end }}</div></header>
+<div class="article-layout"><div class="prose">{{ with .Params.tldr }}<aside class="tldr"><strong>In brief</strong><p>{{ . }}</p></aside>{{ end }}{{ .Content }}</div>{{ if gt (len .Fragments.Headings) 0 }}<aside class="article-toc" aria-label="On this page"><p class="eyebrow">On this page</p>{{ .TableOfContents }}</aside>{{ end }}</div>
+<footer class="article-footer"><div class="tag-list">{{ range .GetTerms "tags" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }} ↗</a>{{ end }}</div><div class="article-pagination">{{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span class="eyebrow">← Older entry</span><span>{{ .Title }}</span></a>{{ end }}{{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span class="eyebrow">Newer entry →</span><span>{{ .Title }}</span></a>{{ end }}</div></footer>
+</article>
+{{ end }}
