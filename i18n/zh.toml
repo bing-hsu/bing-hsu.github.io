@@ -1,0 +1,254 @@
+[skip]
+other = "跳至正文"
+
+[homeLabel]
+other = "Bertram，首页"
+
+[identity]
+other = "判断与构建"
+
+[navigation]
+other = "主导航"
+
+[writing]
+other = "文章"
+
+[topics]
+other = "主题"
+
+[about]
+other = "关于我"
+
+[search]
+other = "搜索"
+
+[elsewhere]
+other = "其他平台"
+
+[footer]
+other = "以分析形成判断，以构建推动行动。"
+
+[built]
+other = "独立思考，以 Hugo 构建。"
+
+[language]
+other = "语言"
+
+[untranslated]
+other = "此页面暂无英文版。"
+
+[languageHome]
+other = "English home ↗"
+
+[eyebrow]
+other = "判断与构建"
+
+[headline]
+other = "问正确的问题，"
+
+[headline2]
+other = "做清晰的判断，"
+
+[headline3]
+other = "落地有用解决方案。"
+
+[intro]
+other = "嗨，我是 Bertram！我喜欢把数据分析与软件构建结合起来，理解真实的业务问题，让想法变成有用的解决方案。"
+
+[explore]
+other = "看看我的文章"
+
+[diagram]
+other = "从证据出发，经由判断走向行动的示意图"
+
+[figure]
+other = "图 01"
+
+[diagramTitle]
+other = "从证据到行动"
+
+[input]
+other = "证据"
+
+[analysis]
+other = "判断"
+
+[output]
+other = "行动"
+
+[caption]
+other = "问对的问题，构建有用的软件。"
+
+[pillars]
+other = "两根支柱，一体实践。"
+
+[pillar1]
+other = "情报分析与决策支持"
+
+[pillar1body]
+other = "从数据挖掘证据，深入理解业务情境，为判断和决策提供有用的洞察。"
+
+[pillar2]
+other = "结果导向的工程实践"
+
+[pillar2body]
+other = "贴近使用者，以实际使用和业务结果检验软件方案。"
+
+[meet]
+other = "更多关于我"
+
+[foundations]
+other = "技术基础"
+
+[deep]
+other = "深度学习"
+
+[robotics]
+other = "机器人学"
+
+[notes]
+other = "笔记"
+
+[methods]
+other = "思考与方法"
+
+[recent]
+other = "近期文章"
+
+[allWriting]
+other = "全部文章"
+
+[closingLabel]
+other = "业务伙伴的视角"
+
+[closing1]
+other = "弄清什么值得做，"
+
+[closing2]
+other = "再把它做得有用。"
+
+[empty]
+other = "中文文章正在酝酿中，欢迎先阅读英文内容。"
+
+[englishArchive]
+other = "浏览英文文章 ↗"
+
+[archive]
+other = "归档"
+
+[archiveIntro]
+other = "关于分析与构建的思考、方法和技术基础。"
+
+[topicIntro]
+other = "从机器学习到编程，探索实践背后的技术基础。"
+
+[browse]
+other = "按主题浏览 ↗"
+
+[allTopics]
+other = "← 全部主题"
+
+[find]
+other = "寻找一个想法"
+
+[searchTitle]
+other = "搜索文章"
+
+[searchIntro]
+other = "寻找一个解释、一种方法，或一个技术细节。"
+
+[searchLabel]
+other = "你想找什么？"
+
+[placeholder]
+other = "试试“情报”或“工程”…"
+
+[searchHelp]
+other = "搜索标题、标签和全文。按 / 聚焦搜索框。"
+
+[loading]
+other = "正在加载内容…"
+
+[noscript]
+other = "搜索需要启用 JavaScript。"
+
+[read]
+other = "阅读"
+
+[toc]
+other = "本页目录"
+
+[brief]
+other = "简要说明"
+
+[draft]
+other = "草稿"
+
+[older]
+other = "← 较早的文章"
+
+[newer]
+other = "较新的文章 →"
+
+[notFound]
+other = "找不到页面"
+
+[missing]
+other = "连接暂时中断"
+
+[missingBody]
+other = "这个页面不存在，欢迎浏览其他文章。"
+
+[back]
+other = "返回首页 ↗"
+
+[searchStart]
+other = "输入关键词，搜索标题、标签和正文。"
+
+[searchEmpty]
+other = "没有找到匹配的内容。"
+
+[searchError]
+other = "无法加载搜索索引，请重试。"
+
+[searchUnavailable]
+other = "搜索索引暂不可用。"
+
+[result]
+other = "找到 {count} 条与“{query}”相关的内容"
+
+[results]
+other = "找到 {count} 条与“{query}”相关的内容"
+
+[section]
+other = " · "
+
+[entries]
+other = "篇文章"
+
+[minutes]
+other = "分钟阅读"
+
+[topicCount]
+other = "篇相关文章。"
+
+[contact]
+other = "来聊聊吧"
+
+[contactIntro]
+other = "有业务问题想一起琢磨，或者有新想法想交流？欢迎联系我！"
+
+[email]
+other = "邮箱"
+
+[wechat]
+other = "微信"
+
+[wechatHint]
+other = "用微信扫描二维码添加我，也可以打开原图保存。"
+
+[wechatAlt]
+other = "Bertram 的微信联系二维码"
+
+[openQR]
+other = "打开二维码原图 ↗"

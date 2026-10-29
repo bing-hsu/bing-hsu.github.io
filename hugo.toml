@@ -1,10 +1,33 @@
 baseURL = 'https://bing-hsu.github.io/'
-locale = 'en-us'
-title = "Bertram — Data Analytics & Business Thinking"
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[languages.en]
+  locale = 'en-US'
+  label = 'English'
+  weight = 1
+  title = 'Bertram — Judgment & Building'
+  [languages.en.params]
+    description = 'Data analysis, intelligence research, and hands-on engineering. Better questions. Clearer decisions. Useful software.'
+
+[languages.zh]
+  locale = 'zh-CN'
+  label = '中文'
+  weight = 2
+  hasCJKLanguage = true
+  title = 'Bertram — 判断与构建'
+  [languages.zh.params]
+    description = '以数据分析与情报研究形成判断，以结果导向的工程实践推动行动。问清问题，做出判断，把方案落地。'
+
+
 # Presentation is owned by this project; no external theme is required.
 [params]
-  description = "Data analytics and business thinking by Bertram. Exploring how business context, clear analysis, and technical depth support better decisions."
+  description = "Better questions. Clearer decisions. Useful software."
   mainSections = ['posts']
+
+[params.contact]
+  email = 'bingxug@gmail.com'
+  wechatQR = 'img/wechat-qr.jpeg'
 
 # Social Tags
 
@@ -12,11 +35,6 @@ title = "Bertram — Data Analytics & Business Thinking"
 name = "GitHub"
 icon = "github"
 url = "https://github.com/bing-hsu"
-
-[[params.social]]
-name = "X"
-icon = "X"
-url = "https://x.com/GBingxu"
 
 # Main menu Items
 # [[menu.main]]

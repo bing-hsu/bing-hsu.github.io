@@ -1,5 +1,5 @@
 <article class="entry">
-  <time class="entry-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
-  <div class="entry-body"><span class="eyebrow entry-topic">{{ partial "topic.html" . }}</span><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | default .Summary | plainify | truncate 165 }}</p><span class="reading-time">{{ .ReadingTime }} min read</span></div>
-  <a class="entry-arrow" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">↗</a>
+  <time class="entry-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format ":date_medium" .Date }}</time>
+  <div class="entry-body"><span class="eyebrow entry-topic">{{ partial "topic.html" . }}</span><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | default .Summary | plainify | truncate 165 }}</p><span class="reading-time">{{ .ReadingTime }} {{ i18n "minutes" }}</span></div>
+  <a class="entry-arrow" href="{{ .RelPermalink }}" aria-label="{{ i18n "read" }} {{ .Title }}">↗</a>
 </article>

@@ -1,0 +1,5 @@
+<div class="language-switch" aria-label="{{ i18n "language" }}">
+{{ $page := . }}
+{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}" {{ if eq .Language.Lang $page.Language.Lang }}aria-current="true"{{ end }}>{{ .Language.Label }}</a>{{ end }}
+{{ if not .IsTranslated }}<details class="language-unavailable"><summary>{{ if eq .Language.Lang "en" }}中文{{ else }}English{{ end }}</summary><div><p>{{ i18n "untranslated" }}</p>{{ range hugo.Sites }}{{ if ne .Language.Lang $page.Language.Lang }}<a href="{{ .Home.RelPermalink }}">{{ i18n "languageHome" }}</a>{{ end }}{{ end }}</div></details>{{ end }}
+</div>

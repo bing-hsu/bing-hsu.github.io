@@ -1,3 +1,33 @@
+/* JetBrains Mono v2.304, SIL Open Font License; served locally. */
+@font-face {
+  font-family: JetBrainsMono;
+  src: url("../fonts/jetbrains-mono/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: JetBrainsMono;
+  src: url("../fonts/jetbrains-mono/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: JetBrainsMono;
+  src: url("../fonts/jetbrains-mono/JetBrainsMono-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: JetBrainsMono;
+  src: url("../fonts/jetbrains-mono/JetBrainsMono-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --paper:#f8f7f2;
   --ink:#252a24;
@@ -5,9 +35,8 @@
   --green:#36533d;
   --line:#dddfd3;
   --wash:#eef0e6;
-  --serif:Georgia,'Times New Roman',serif;
-  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --mono:'SFMono-Regular',Consolas,monospace
+  --sans:Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","Noto Sans CJK",sans-serif;
+  --mono:JetBrainsMono,monospace
 }
 * {
   box-sizing:border-box
@@ -64,7 +93,7 @@ svg {
 .wordmark {
   display:flex;
   align-items:baseline;
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:34px;
   font-weight:bold;
   letter-spacing:-1.8px
@@ -136,15 +165,11 @@ svg {
   background:var(--green)
 }
 .hero h1 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:clamp(44px,4.7vw,65px);
   line-height:1.09;
   letter-spacing:-2.5px;
   margin-bottom:25px
-}
-.hero h1 em {
-  color:var(--green);
-  font-weight:400
 }
 .hero-description {
   font-size:15px;
@@ -183,7 +208,7 @@ svg {
 }
 .hero-art>p {
   text-align:center;
-  font:italic 15px var(--serif);
+  font:italic 15px var(--sans);
   color:var(--muted);
   margin-top:12px
 }
@@ -218,7 +243,7 @@ svg {
   margin-bottom:10px
 }
 .section-heading h2 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:36px;
   line-height:1.2;
   letter-spacing:-1px;
@@ -247,7 +272,7 @@ svg {
   letter-spacing:1.1px
 }
 .entry h3 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:25px;
   line-height:1.25;
   letter-spacing:-.45px;
@@ -274,25 +299,6 @@ svg {
 .entry:hover .entry-arrow {
   transform:translate(3px,-3px)
 }
-.closing-note {
-  background:var(--wash);
-  border:1px solid var(--line);
-  padding:36px 42px;
-  position:relative;
-  margin:35px 0 80px
-}
-.closing-note>p {
-  font-family:var(--serif);
-  font-size:27px;
-  line-height:1.4;
-  letter-spacing:-.4px;
-  margin:13px 0 0
-}
-.closing-note .text-link {
-  position:absolute;
-  right:42px;
-  bottom:41px
-}
 .site-footer {
   border-top:1px solid var(--line);
   padding:31px 0 35px;
@@ -303,7 +309,7 @@ svg {
   margin-top:75px
 }
 .footer-name {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:25px;
   font-weight:bold;
   letter-spacing:-1px
@@ -328,7 +334,7 @@ svg {
   max-width:850px
 }
 .page-intro h1 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:clamp(44px,6vw,66px);
   line-height:1.12;
   letter-spacing:-2px;
@@ -359,7 +365,7 @@ svg {
   background:var(--wash)
 }
 .topic-tile h2 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:35px;
   letter-spacing:-1px;
   margin:18px 0 0
@@ -383,7 +389,7 @@ svg {
   color:var(--green)
 }
 .article-header h1 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:clamp(38px,5vw,60px);
   line-height:1.12;
   letter-spacing:-1.8px;
@@ -423,13 +429,13 @@ svg {
   scroll-margin-top:24px
 }
 .prose h2 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:32px;
   letter-spacing:-.7px;
   margin:1.6em 0 .7em
 }
 .prose h3 {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:25px;
   margin:1.5em 0 .7em
 }
@@ -585,7 +591,7 @@ svg {
   display:flex;
   flex-direction:column;
   gap:9px;
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:20px;
   line-height:1.4
 }
@@ -602,7 +608,7 @@ svg {
   border-bottom:1px solid #8f9b84;
   color:var(--ink);
   background:transparent;
-  font:27px/1.4 var(--serif);
+  font:27px/1.4 var(--sans);
   padding:20px 0;
   margin:7px 0 15px;
   border-radius:0
@@ -633,7 +639,7 @@ kbd {
   padding:25px 0
 }
 .search-result-title {
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:28px;
   line-height:1.3;
   margin:0 0 10px
@@ -692,10 +698,6 @@ kbd {
   }
   .article-footer {
     max-width:none
-  }
-  .closing-note .text-link {
-    position:static;
-    margin-top:25px
   }
   .entry {
     grid-template-columns:105px 1fr 20px;
@@ -796,13 +798,6 @@ kbd {
   .entry-arrow {
     grid-column:2;
     grid-row:2
-  }
-  .closing-note {
-    padding:26px;
-    margin:25px 0 45px
-  }
-  .closing-note>p {
-    font-size:25px
   }
   .site-footer {
     margin-top:45px;
@@ -913,4 +908,51 @@ kbd {
   .article-toc {
     display:none
   }
+}
+
+/* Shared bilingual navigation and positioning. */
+.header-controls { display: flex; align-items: center; gap: 22px; }
+.language-switch { display: flex; align-items: center; gap: 10px; font-size: 11px; border-left: 1px solid var(--line); padding-left: 18px; }
+.language-switch a[aria-current] { color: var(--green); font-weight: 600; }
+.language-unavailable { position: relative; color: var(--muted); }
+.language-unavailable summary { cursor: pointer; }
+.language-unavailable > div { position: absolute; right: 0; top: 30px; width: 230px; background: var(--paper); border: 1px solid var(--line); padding: 16px; z-index: 5; box-shadow: 0 5px 20px #252a2410; }
+.language-unavailable p { margin-bottom: 10px; }
+.about-page { max-width: 760px; margin: auto; }
+.about-page .page-intro { padding-bottom: 12px; }
+.about-page .prose > h2:first-child { margin-top: 0; }
+.empty-state { padding: 30px 0; color: var(--muted); }
+html:lang(zh) .hero h1 { font-size: clamp(32px, 3.6vw, 48px); letter-spacing: 0; line-height: 1.4; }
+html:lang(zh) .prose { line-height: 2; }
+html:lang(zh) .eyebrow { letter-spacing: 1px; }
+@media (max-width: 1100px) { .wordmark-caption { display: none; } .site-header nav { gap: 20px; } }
+@media (max-width: 600px) {
+  .site-header { flex-wrap: wrap; padding: 16px 0; gap: 8px; }
+  .header-controls { width: 100%; justify-content: space-between; gap: 10px; }
+  .site-header nav { gap: 18px; }
+  .language-switch { padding-left: 10px; gap: 8px; }
+  .hero h1 { font-size: clamp(33px, 8.9vw, 47px); }
+  html:lang(zh) .hero h1 { font-size: clamp(28px, 7.5vw, 36px); }
+}
+
+.contact-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 296px);
+  gap: 36px;
+  border-top: 1px solid var(--line);
+  padding-top: 36px;
+  margin-top: 44px;
+  scroll-margin-top: 24px;
+}
+.contact-copy h2 { font-size: 28px; line-height: 1.3; margin-bottom: 18px; }
+.contact-copy h3 { font-size: 12px; font-weight: 600; margin: 25px 0 8px; }
+.contact-copy p { font-size: 14px; color: var(--muted); }
+.contact-email { color: var(--green); text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.wechat-qr { margin: 0; }
+.wechat-qr img { display: block; width: 100%; height: auto; background: white; }
+.wechat-qr figcaption { margin-top: 12px; text-align: center; }
+.site-footer nav { flex-wrap: wrap; }
+@media (max-width: 600px) {
+  .contact-section { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .wechat-qr { width: 100%; max-width: 296px; }
 }

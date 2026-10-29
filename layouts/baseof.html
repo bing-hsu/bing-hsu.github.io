@@ -1,19 +1,20 @@
 <!doctype html>
-<html lang="{{ .Site.Language.Locale | default "en" }}">
+<html lang="{{ .Site.Language.Locale }}">
 {{ partial "header.html" . }}
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">{{ i18n "skip" }}</a>
 <div class="site-shell">
 <header class="site-header">
-  <a class="wordmark" href="{{ "" | relURL }}" aria-label="Bertram, data analytics and business thinking, home">bertram<span class="wordmark-dot">.</span><span class="wordmark-caption">analytics &amp; business thinking</span></a>
-  <nav aria-label="Main navigation">
-    <a href="{{ "posts/" | relURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>Writing</a>
-    <a href="{{ "tags/" | relURL }}" {{ if eq .Section "tags" }}aria-current="page"{{ end }}>Topics</a>
-    <a class="search-nav" href="{{ "search/" | relURL }}" {{ if eq .Layout "search" }}aria-current="page"{{ end }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>Search</span></a>
-  </nav>
+  <a class="wordmark" href="{{ .Site.Home.RelPermalink }}" aria-label="{{ i18n "homeLabel" }}">bertram<span class="wordmark-dot">.</span><span class="wordmark-caption">{{ i18n "identity" }}</span></a>
+  <div class="header-controls"><nav aria-label="{{ i18n "navigation" }}">
+    <a href="{{ "about/" | relLangURL }}" {{ if eq .Layout "about" }}aria-current="page"{{ end }}>{{ i18n "about" }}</a>
+    <a href="{{ "posts/" | relLangURL }}" {{ if eq .Section "posts" }}aria-current="page"{{ end }}>{{ i18n "writing" }}</a>
+    <a href="{{ "tags/" | relLangURL }}" {{ if eq .Section "tags" }}aria-current="page"{{ end }}>{{ i18n "topics" }}</a>
+    <a href="{{ "search/" | relLangURL }}" {{ if eq .Layout "search" }}aria-current="page"{{ end }}>{{ i18n "search" }}</a>
+  </nav>{{ partial "languages.html" . }}</div>
 </header>
 <main id="main">{{ block "main" . }}{{ end }}</main>
-<footer class="site-footer"><div><a class="footer-name" href="{{ "" | relURL }}">bertram.</a><p>Data. Context. Better decisions.</p></div><nav aria-label="Elsewhere">{{ range .Site.Params.social }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ end }}<a href="{{ "index.xml" | relURL }}">RSS ↗</a></nav><span class="footer-note">Independent thinking. Built with Hugo.</span></footer>
+<footer class="site-footer"><div><a class="footer-name" href="{{ .Site.Home.RelPermalink }}">bertram.</a><p>{{ i18n "footer" }}</p></div><nav aria-label="{{ i18n "elsewhere" }}">{{ range .Site.Params.social }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ end }}<a href="mailto:{{ .Site.Params.contact.email }}">{{ i18n "email" }} ↗</a><a href="{{ "about/" | relLangURL }}#contact">{{ i18n "wechat" }}</a><a href="{{ "index.xml" | relLangURL }}">RSS ↗</a></nav><span class="footer-note">{{ i18n "built" }}</span></footer>
 </div>
 </body>
 </html>

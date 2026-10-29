@@ -1,0 +1,254 @@
+[skip]
+other = "Skip to content"
+
+[homeLabel]
+other = "Bertram, home"
+
+[identity]
+other = "Judgment & Building"
+
+[navigation]
+other = "Main navigation"
+
+[writing]
+other = "Writing"
+
+[topics]
+other = "Topics"
+
+[about]
+other = "About"
+
+[search]
+other = "Search"
+
+[elsewhere]
+other = "Elsewhere"
+
+[footer]
+other = "Analysis to understand. Building to act."
+
+[built]
+other = "Independent thinking. Built with Hugo."
+
+[language]
+other = "Language"
+
+[untranslated]
+other = "This page is not available in Chinese yet."
+
+[languageHome]
+other = "中文首页 ↗"
+
+[eyebrow]
+other = "Judgment & Building"
+
+[headline]
+other = "Better questions."
+
+[headline2]
+other = "Clearer decisions."
+
+[headline3]
+other = "Useful software."
+
+[intro]
+other = "Hey, I’m Bertram! I bring analysis and hands-on building together to understand real business problems and turn ideas into useful solutions."
+
+[explore]
+other = "Explore my writing"
+
+[diagram]
+other = "A diagram connecting evidence through judgment to useful software"
+
+[figure]
+other = "FIG. 01"
+
+[diagramTitle]
+other = "FROM EVIDENCE TO ACTION"
+
+[input]
+other = "EVIDENCE"
+
+[analysis]
+other = "JUDGMENT"
+
+[output]
+other = "ACTION"
+
+[caption]
+other = "Understand what matters. Build what helps."
+
+[pillars]
+other = "Two pillars. One practice."
+
+[pillar1]
+other = "Intelligence Analysis & Decision Support"
+
+[pillar1body]
+other = "Cut through information noise, connect evidence, and turn data into insights that support better business decisions."
+
+[pillar2]
+other = "Outcome-Driven Engineering"
+
+[pillar2body]
+other = "Work close to users, take ownership from discovery to delivery, and build practical software with business outcomes in mind."
+
+[meet]
+other = "More about me"
+
+[foundations]
+other = "Technical foundations"
+
+[deep]
+other = "Deep learning"
+
+[robotics]
+other = "Robotics"
+
+[notes]
+other = "Notes"
+
+[methods]
+other = "Ideas & methods"
+
+[recent]
+other = "Recent writing"
+
+[allWriting]
+other = "All writing"
+
+[closingLabel]
+other = "A business partner’s perspective"
+
+[closing1]
+other = "Understand what matters."
+
+[closing2]
+other = "Build something useful."
+
+[empty]
+other = "No articles in English yet."
+
+[englishArchive]
+other = "Browse the English archive ↗"
+
+[archive]
+other = "Archive"
+
+[archiveIntro]
+other = "Ideas, methods, and technical foundations behind my approach to analysis and building."
+
+[topicIntro]
+other = "Explore the technical foundations behind my work, from machine learning to programming."
+
+[browse]
+other = "Browse by topic ↗"
+
+[allTopics]
+other = "← All topics"
+
+[find]
+other = "Find an idea"
+
+[searchTitle]
+other = "Search the writing"
+
+[searchIntro]
+other = "Find an explanation, a method, or a technical detail."
+
+[searchLabel]
+other = "What are you looking for?"
+
+[placeholder]
+other = "Try “robotics” or “PyTorch”…"
+
+[searchHelp]
+other = "Search titles, tags, and full text. Press / to focus."
+
+[loading]
+other = "Loading pages…"
+
+[noscript]
+other = "Search needs JavaScript."
+
+[read]
+other = "Read"
+
+[toc]
+other = "On this page"
+
+[brief]
+other = "In brief"
+
+[draft]
+other = "Draft"
+
+[older]
+other = "← Older entry"
+
+[newer]
+other = "Newer entry →"
+
+[notFound]
+other = "Page not found"
+
+[missing]
+other = "A missing connection"
+
+[missingBody]
+other = "This page isn’t here. Browse the writing to find what you need."
+
+[back]
+other = "Back to the homepage ↗"
+
+[searchStart]
+other = "Start typing to search titles, tags, and content."
+
+[searchEmpty]
+other = "No matching pages found."
+
+[searchError]
+other = "The search index could not be loaded. Please try again."
+
+[searchUnavailable]
+other = "The search index is unavailable."
+
+[result]
+other = "{count} result for “{query}”"
+
+[results]
+other = "{count} results for “{query}”"
+
+[section]
+other = " in "
+
+[entries]
+other = "entries"
+
+[minutes]
+other = "min read"
+
+[topicCount]
+other = "articles on this topic."
+
+[contact]
+other = "Let’s connect"
+
+[contactIntro]
+other = "Have a business problem in mind, or an idea to share? I’d love to hear from you."
+
+[email]
+other = "Email"
+
+[wechat]
+other = "WeChat"
+
+[wechatHint]
+other = "Scan with WeChat to add me, or open the image to save it."
+
+[wechatAlt]
+other = "Bertram’s WeChat contact QR code"
+
+[openQR]
+other = "Open full-size QR code ↗"

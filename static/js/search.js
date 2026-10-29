@@ -14,6 +14,8 @@
         return;
     }
 
+    var messages = JSON.parse(root.querySelector("[data-search-messages]").textContent);
+
     var combiningMarkPattern = createRegex("\\p{M}+", "gu", /[\u0300-\u036f]+/g);
     var nonSearchCharacterPattern = createRegex(
         "[^\\p{L}\\p{N}\\s]+",
@@ -168,16 +170,16 @@
         results.replaceChildren();
 
         if (!tokens.length) {
-            renderEmptyState("Start typing to search titles, tags, descriptions, and content.", "search-status-empty");
+            renderEmptyState(messages.start, "search-status-empty");
             return;
         }
 
         if (!entries.length) {
-            renderEmptyState("No matching entries found.", "search-status-empty");
+            renderEmptyState(messages.empty, "search-status-empty");
             return;
         }
 
-        status.textContent = entries.length + (entries.length === 1 ? " result" : " results") + " for \"" + query + "\"";
+        status.textContent = (entries.length === 1 ? messages.result : messages.results).replace("{count}", entries.length).replace("{query}", function () { return query; });
         status.className = "search-status";
 
         entries.forEach(function (entry) {
@@ -195,10 +197,12 @@
             meta.textContent = entry.displayDate;
 
             if (entry.section) {
-                meta.textContent += " in " + entry.section;
+                meta.textContent += messages.section + entry.section;
             }
 
-            article.appendChild(meta);
+            if (meta.textContent) {
+                article.appendChild(meta);
+            }
 
             if (entry.tags.length) {
                 var tagList = createElement("ul", "search-tag-list");
@@ -343,7 +347,7 @@
     }
 
     if (!indexUrl) {
-        renderEmptyState("Search index is unavailable. Add `outputs = [\"html\", \"json\"]` to the search page front matter.", "search-status-error");
+        renderEmptyState(messages.unavailable, "search-status-error");
         return;
     }
 
@@ -359,6 +363,6 @@
             bootstrap(Array.isArray(entries) ? entries : []);
         })
         .catch(function () {
-            renderEmptyState("The search index could not be loaded for this page.", "search-status-error");
+            renderEmptyState(messages.error, "search-status-error");
         });
 }());
