@@ -59,13 +59,13 @@ other = "Hey, I’m Bertram! I bring analysis and hands-on building together to 
 other = "Explore my writing"
 
 [diagram]
-other = "A diagram connecting evidence through judgment to useful software"
+other = "A neural network connecting data, evidence, judgment, software, and outcomes"
 
 [figure]
 other = "FIG. 01"
 
 [diagramTitle]
-other = "FROM EVIDENCE TO ACTION"
+other = "FROM DATA TO OUTCOME"
 
 [input]
 other = "EVIDENCE"
@@ -252,3 +252,18 @@ other = "Bertram’s WeChat contact QR code"
 
 [openQR]
 other = "Open full-size QR code ↗"
+
+[diagramData]
+other = "DATA"
+
+[diagramEvidence]
+other = "EVIDENCE"
+
+[diagramJudgment]
+other = "JUDGMENT"
+
+[diagramSoftware]
+other = "SOFTWARE"
+
+[diagramOutcome]
+other = "OUTCOME"

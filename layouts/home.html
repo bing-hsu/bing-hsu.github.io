@@ -1,14 +1,16 @@
 {{ define "main" }}
 <section class="hero">
-<div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> {{ i18n "eyebrow" }}</p><h1>{{ i18n "headline" }}<br>{{ i18n "headline2" }}<br>{{ i18n "headline3" }}</h1><p class="hero-description">{{ i18n "intro" }}</p><a class="text-link" href="#latest">{{ i18n "explore" }} <span>↓</span></a></div>
+<div class="hero-copy"><h1>{{ i18n "headline" }}<br>{{ i18n "headline2" }}<br>{{ i18n "headline3" }}</h1><p class="hero-description">{{ i18n "intro" }}</p><a class="text-link" href="#latest">{{ i18n "explore" }} <span>↓</span></a></div>
 <div class="hero-art" role="img" aria-label="{{ i18n "diagram" }}">
 <div class="diagram-heading"><span>{{ i18n "figure" }}</span><span>{{ i18n "diagramTitle" }}</span></div>
-<svg viewBox="0 0 400 275" fill="none" aria-hidden="true">
-<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#cfcec2"/></pattern></defs><rect width="400" height="275" fill="url(#grid)"/>
-<g stroke="#a6b1a0" stroke-width="1"><path d="M65 90 160 55 255 90 335 138M65 90 160 138 255 90M65 90 160 220 255 90M65 185 160 55 255 185 335 138M65 185 160 138 255 185M65 185 160 220 255 185M160 55 255 185M160 220 255 90"/></g>
-<g fill="#f8f7f2" stroke="#74836d" stroke-width="1.5"><circle cx="65" cy="90" r="10"/><circle cx="65" cy="185" r="10"/><circle cx="160" cy="55" r="10"/><circle cx="160" cy="138" r="10"/><circle cx="160" cy="220" r="10"/><circle cx="255" cy="90" r="10"/><circle cx="255" cy="185" r="10"/></g><circle cx="335" cy="138" r="16" fill="#36533d"/><circle cx="335" cy="138" r="5" fill="#f8f7f2"/>
-<g fill="#72776c" style="font-family:var(--mono)" font-size="10"><text x="44" y="263">{{ i18n "input" }}</text><text x="167" y="263">{{ i18n "analysis" }}</text><text x="313" y="263">{{ i18n "output" }}</text></g>
-</svg><p>{{ i18n "caption" }}</p>
+<svg viewBox="0 0 500 245" fill="none" aria-hidden="true">
+<defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#cfcec2"/></pattern></defs>
+<rect width="500" height="245" fill="url(#grid)"/>
+<g stroke="#a6b1a0" stroke-width="1"><path d="M50 55L150 85M50 55L150 165M50 125L150 85M50 125L150 165M50 195L150 85M50 195L150 165M150 85L250 55M150 85L250 125M150 85L250 195M150 165L250 55M150 165L250 125M150 165L250 195M250 55L350 85M250 55L350 165M250 125L350 85M250 125L350 165M250 195L350 85M250 195L350 165M350 85L450 125M350 165L450 125"/></g>
+<g fill="var(--paper)" stroke="#74836d" stroke-width="1.5"><circle cx="50" cy="55" r="9"/><circle cx="50" cy="125" r="9"/><circle cx="50" cy="195" r="9"/><circle cx="150" cy="85" r="9"/><circle cx="150" cy="165" r="9"/><circle cx="250" cy="55" r="9"/><circle cx="250" cy="125" r="9"/><circle cx="250" cy="195" r="9"/><circle cx="350" cy="85" r="9"/><circle cx="350" cy="165" r="9"/></g>
+<circle cx="450" cy="125" r="16" fill="var(--green)"/><circle cx="450" cy="125" r="5" fill="var(--paper)"/>
+</svg>
+<div class="diagram-stages" aria-hidden="true">{{/* diagramData */}}<span>{{ i18n "diagramData" }}</span>{{/* diagramEvidence */}}<span>{{ i18n "diagramEvidence" }}</span>{{/* diagramJudgment */}}<span>{{ i18n "diagramJudgment" }}</span>{{/* diagramSoftware */}}<span>{{ i18n "diagramSoftware" }}</span>{{/* diagramOutcome */}}<span>{{ i18n "diagramOutcome" }}</span></div><p>{{ i18n "caption" }}</p>
 </div>
 </section>
 <section class="writing-section" id="latest"><div class="section-heading"><div><p class="eyebrow">{{ i18n "methods" }}</p><h2>{{ i18n "recent" }}<span class="accent">.</span></h2></div><a class="text-link" href="{{ "posts/" | relLangURL }}">{{ i18n "allWriting" }} <span>↗</span></a></div>

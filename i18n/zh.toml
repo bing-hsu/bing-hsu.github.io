@@ -5,7 +5,7 @@ other = "跳至正文"
 other = "Bertram，首页"
 
 [identity]
-other = "判断与构建"
+other = "Judgment & Building"
 
 [navigation]
 other = "主导航"
@@ -41,7 +41,7 @@ other = "此页面暂无英文版。"
 other = "English home ↗"
 
 [eyebrow]
-other = "判断与构建"
+other = "Judgment & Building"
 
 [headline]
 other = "问正确的问题，"
@@ -59,13 +59,13 @@ other = "嗨，我是 Bertram！我喜欢把数据分析与软件构建结合起
 other = "看看我的文章"
 
 [diagram]
-other = "从证据出发，经由判断走向行动的示意图"
+other = "连接数据、证据、判断、软件与业务结果的神经网络示意图"
 
 [figure]
 other = "图 01"
 
 [diagramTitle]
-other = "从证据到行动"
+other = "从数据到业务结果"
 
 [input]
 other = "证据"
@@ -252,3 +252,18 @@ other = "Bertram 的微信联系二维码"
 
 [openQR]
 other = "打开二维码原图 ↗"
+
+[diagramData]
+other = "数据"
+
+[diagramEvidence]
+other = "证据"
+
+[diagramJudgment]
+other = "判断"
+
+[diagramSoftware]
+other = "软件"
+
+[diagramOutcome]
+other = "结果"

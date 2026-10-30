@@ -5,7 +5,10 @@
 This is Bertram’s personal website, built with Hugo and published on GitHub
 Pages at https://bing-hsu.github.io/.
 
-- The site identity is **Judgment & Building / 判断与构建**. Its slogan is
+- The site identity is **Judgment & Building** in both English and Chinese.
+  Keep this subtitle in English on the Chinese site; do not translate it as
+  “判断与构建”. Omit the redundant identity eyebrow above the homepage headline.
+  Its slogan is
   “Better questions. Clearer decisions. Useful software.” The Chinese homepage
   expresses this as “问清问题，做出判断，把方案落地。”
 - Present two mutually supporting pillars:

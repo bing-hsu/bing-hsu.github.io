@@ -1,7 +1,7 @@
 +++
 title = 'Before building a dashboard, name the decision'
 date = '2026-10-29T12:00:00+08:00'
-draft = false
+draft = true
 translationKey = 'decision-before-dashboard'
 tags = ['Analytics', 'Decision support']
 description = 'An illustrative example of connecting a business question to analysis, a small software tool, and a way to evaluate whether it helps.'

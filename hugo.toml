@@ -15,7 +15,7 @@ defaultContentLanguageInSubdir = false
   label = '中文'
   weight = 2
   hasCJKLanguage = true
-  title = 'Bertram — 判断与构建'
+  title = 'Bertram — Judgment & Building'
   [languages.zh.params]
     description = '以数据分析与情报研究形成判断，以结果导向的工程实践推动行动。问清问题，做出判断，把方案落地。'
 
