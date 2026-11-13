@@ -1,0 +1,97 @@
++++
+date = '2026-11-13T18:10:37+08:00'
+draft = true
+title = 'Business Cases'
+description = "A roadmap from survival analysis to acquisition investment, customer lifecycle planning, and retention resource allocation."
+tags = ['Analytics']
+translationKey = 'analyze-time-to-event-2'
+math = true
+seriesID = 'analyze-time-to-event'
+seriesTitle = 'Analyze Time-to-Event'
+seriesRole = 'chapter'
+seriesChapter = 2
+seriesSection = 0
+seriesOrder = 200
++++
+
+> A business case framing exercise using the
+> [TelCo Customer Churn dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data).
+> These articles develop decision frameworks; they do not report validated
+> commercial results.
+
+A customer survival curve can answer more than “how long will a customer stay?”
+It can inform how much to invest in acquisition, when to prepare lifecycle
+actions, and where to focus a retention team's limited capacity.
+
+This chapter connects those decisions through one shared survival process,
+$S(t \mid x)$. Each case starts with a business question, identifies the
+analytical output needed, and develops a decision rule.
+
+## Management Architecture
+
+The three objectives form a management architecture governed by the same
+survival process:
+
+- **Case 2.1 — Acquisition / Financial:** Use expected customer value and
+  payback constraints to decide which acquisition opportunities justify
+  investment.
+- **Case 2.2 — Lifecycle / Structural:** Identify higher-risk windows across
+  customer tenure, then allow enough operational lead time to prepare an
+  appropriate response.
+- **Case 2.3 — Retention / Tactical:** Prioritize individual accounts using
+  near-term churn risk, financial value at stake, intervention cost, and
+  expected effectiveness.
+
+The reading order follows the customer journey: **acquire → manage the lifecycle
+→ allocate retention effort**. These are connected management perspectives, not
+three independent models. Acquisition decisions, for example, depend on
+assumptions about future retention.
+
+## Case 2.1: Customer Lifetime Value and Acquisition Decisions {#objective-3-customer-lifetime-value-ltv-forecasting--capital-allocation}
+
+**Which customers can we afford to acquire, and on what terms?**
+
+The upstream decision uses the survival curve to estimate discounted lifetime
+value. A return threshold imposes a boundary such as
+$\text{CAC} \le \text{LTV}/\theta$, while a payback constraint checks whether
+cash returns soon enough to support the business.
+
+{{< series-link "posts/analytics/analyze-time-to-event/biz-case.2-1.en.md" "Read Section 2.1: Customer Lifetime Value and Acquisition Decisions →" >}}
+
+## Case 2.2: Hazard Trajectories and Customer Lifecycle Planning {#objective-2-subscriber-lifetime-risk-level-characterization}
+
+**When should the business prepare to act?**
+
+The structural view examines the hazard trajectory for renewal cliffs and other
+risk windows. It connects the timing of risk to the lead time required by
+operations, helping teams plan before a critical point arrives.
+
+{{< series-link "posts/analytics/analyze-time-to-event/biz-case.2-2.en.md" "Read Section 2.2: Hazard Trajectories and Customer Lifecycle Planning →" >}}
+
+## Case 2.3: Allocating Retention Resources {#objective-1-short-horizon-intervention-resource-allocation}
+
+**Given limited capacity, whom should we help next?**
+
+The tactical view brings near-term churn risk together with the value at stake
+and the cost and effectiveness of intervention. The aim is to frame a useful
+prioritization rule for a team with limited resources.
+
+{{< series-link "posts/analytics/analyze-time-to-event/biz-case.2-3.en.md" "Read Section 2.3: Allocating Retention Resources →" >}}
+
+## Shared Evidence, Different Decisions
+
+A predicted risk is not the same as the effect of an intervention. Knowing who
+is likely to churn does not establish whom an action will help. Likewise, a
+proposed threshold or a lifecycle pattern needs validation before it becomes an
+operational policy.
+
+Across the series, distinguish the model's output, the assumptions needed for a
+decision, and the evidence that would show whether acting on it is useful.
+
+## Mathematical Foundations
+
+For the background on censoring, latent event times, survival functions, hazard,
+and cumulative hazard, see
+{{< series-link "posts/analytics/analyze-time-to-event/data-math.1.en.md" "Data and Math Toolset" >}}.
+Chapter 1 introduces the shared data and mathematical tools; return to it
+whenever the notation needs unpacking.

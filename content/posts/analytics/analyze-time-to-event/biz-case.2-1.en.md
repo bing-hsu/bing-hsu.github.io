@@ -1,0 +1,304 @@
++++
+date = '2026-11-13T18:10:37+08:00'
+draft = true
+title = "Lifetime Value (LTV) and Acquisition Decisions"
+description = "Connect survival estimates to customer lifetime value, acquisition budgets, return thresholds, and payback constraints."
+tags = ['Analytics']
+translationKey = 'customer-lifetime-value-acquisition'
+math = true
+seriesID = 'analyze-time-to-event'
+seriesTitle = 'Analyze Time-to-Event'
+seriesRole = 'section'
+seriesChapter = 2
+seriesSection = 1
+seriesOrder = 201
++++
+
+Case 2.1 answers: _"Given the expected survival curve of a cohort (market
+segment, region, channel, etc.), what is their net discounted financial
+contribution over their entire lifecycle, and how much can we afford to spend to
+acquire & maintain them?"_
+
+## Analysis Output
+
+We need to estimate the **"expected lifetime $\mathbb{E}[T^*]$"** of a
+subscriber cohort, given its profile (covariates $\mathbf{x}$).
+
+The expected lifetime of a subscriber is the integral to infinity of her
+survival probability density distribution $S(t)$:
+
+$$\mathbb{E}[T^*] = \int_0^\infty S(t) \, dt$$
+
+for each duration $t_i$, $S(t_i)$ tells you the probability a subject can
+survive _immediately_ pass $t_i$.
+
+> The **"Darth Vader rule"**: calculate the expected value $E[X]$ of a
+> non-negative random variable by integrating its survival function $S(x)$
+
+## Business Considerations
+
+**Discounted Expected Lifetime Value**
+
+> **By convention, $\text{LTV}$ is defined as an expected value**. You do not
+> need to write $\mathbb{E}[\text{LTV}]$.
+
+To translate expected lifetime into a finance metric:
+
+$$\text{LTV}(x) = \int_0^\infty m(t) \cdot S(t) \cdot e^{-\rho t} \, dt$$
+
+Where:
+
+- $m(t)$: (how much does the cohort pay on average at $t$) The net recurring
+  margin per unit time at tenure $t$.
+- $S(t)$: (the fraction of cohort that is still paying at $t$) The probability
+  that the account remains active at tenure $t$.
+- $e^{-\rho t}$ (discount rate considering time value of money): The discount
+  factor for cash realized $t$ periods in the future.
+  - $\rho$: The discount rate.
+
+> **Simplified Case: Constant Margin and No Discounting ($\rho = 0, m(t) = m$)**
+>
+> If the margin is constant ($m(t) = m$) and there is no time discounting
+> ($\rho = 0$), the formula is simplified:
+>
+> $$\text{LTV}(x) = \int_0^\infty m \cdot S(t) \, dt = m \cdot \mathbb{E}[T]$$
+>
+> Expected lifetime value is simply margin (how much one pays ) $\times$
+> expected lifetime (how long does one keep paying).
+
+**Residual Lifetime Value (rLTV)**
+
+For an active subscriber who has already be a subscriber for a tenure $t_0$.
+Their forward-looking economic value is their **Residual LTV** (remaining LTV,
+deduct what they have already paid):
+
+$$\text{rLTV}(t_0 \mid x) = \int_{t_0}^\infty m(t) \cdot \frac{S(t)}{S(t_0)} \cdot e^{-\rho (t - t_0)} \, dt$$
+
+**Mean Residual Life ($\text{mrl}(t_0)$)**
+
+The term $\frac{S(t)}{S(t_0)}$ is the conditional survival probability
+$P(T > t \mid T > t_0)$. Integrating this yields the **expected remaining
+lifetime (Mean Residual Life)**:
+
+$$\mathbb{E}[T - t_0 \mid T > t_0] = \int_{t_0}^\infty \frac{S(t)}{S(t_0)} \, dt$$
+
+> **Simplified Case: Constant Margin and No Discounting ($\rho = 0, m(t) = m$)**
+>
+> The formula simplifies to:
+> $$\text{rLTV}(x; t_0) = m \cdot \mathbb{E}[T - t_0 \mid T > t_0]=m \cdot \operatorname{mrl}(t_0)$$
+>
+> The expected residual lifetime value is simply margin $\times$ expected
+> remaining lifetime.
+
+## Decision: Acquisition Initiative Governance
+
+The decision is about whether to invest into specific marketing channels,
+campaigns, or customer segments.
+
+Given a candidate customer segment $k$. Let the action space be
+$a \in \{0, 1\}$:
+
+- $a = 1$: Approve acquisition campaign for $k$ and allocate budget.
+- $a = 0$: Reject campaign for $k$ and withhold budget.
+
+**Net Expected Utility**
+
+Under investment ($a = 1$):
+
+$$\mathbb{E}[U \mid a = 1, x_k] = \text{LTV}(x_k) - \theta \cdot \text{CAC}_k$$
+
+Under rejection / status quo ($a = 0$):
+
+$$\mathbb{E}[U \mid a = 0, x_k] = 0$$
+
+where:
+
+- $\text{CAC}_k$: The fully loaded **Customer Acquisition Cost** for segment
+  $k$. [see more](#customer-acquisition-cost-cac)
+- $\text{LTV}_k$: The expected discounted lifetime value derived from
+  $S(t \mid x_k)$.
+- $\theta > 1$ : The target **return multiple** threshold required by corporate
+  policy (typically $\theta = 3$ for a target $3:1$ LTV:CAC ratio).
+  [see more](#ltvcac-multiple--required-return-multiple)
+
+Therefore, we should only consider such a campaign when the net expected utility
+is positive:
+
+$$\mathbb{E}[U \mid a = 1, x_k] = \text{LTV}(x_k) - \theta \cdot \text{CAC}_k > 0$$
+
+**Working Capital Constraint, see [more](#working-capital-constraints)**
+
+Besides the net expected benefit of the proposed campaign, be aware of the fact
+that the money paid for the campaign is essentially an investment expecting a
+return that must both be positive (covered by positive net expected utility) and
+be realized in a reasonable time window. It can happen that the ultimate return
+is positive, but that takes far too long to be of any benefit to business
+operations.
+
+So, we need **another** decision gate:
+
+$$T_{\text{payback}} \le T_{\max}$$
+
+- $T_{\text{payback}}$: The time required for cumulative discounted gross margin
+  to recover $\text{CAC}_k$.
+- $T_{\max}$: The maximum allowable payback window (e.g., 12 months) to maintain
+  working capital safety.
+
+**The Double-Gate Decision rule**
+
+Budget is approved if the profile satisfies both _unit economic profitability_
+and _working capital constraints_:
+
+$$\delta(x_k) = \underbrace{\mathbb{I}\left( \text{LTV}(x_k) - \theta \cdot \text{CAC}_k > 0 \right)}_{\text{unit economic profitability}} \times \underbrace{\mathbb{I}\left( T_{\text{payback}}(x_k) \le T_{\max} \right)}_{\text{working capital constraints}}$$
+
+- Gate 1: The Profitability Constraint
+  ($\text{LTV} \ge \theta \cdot \text{CAC}$)
+- Gate 2: The Solvency Constraint ($T_{\text{payback}} \le T_{\max}$)
+
+**Failure in either gate vetos the the decision.**
+
+- **Failure Mode A: High LTV, Unacceptable Payback**
+
+  > Scaling this channel freeze too much money.
+  - $\text{LTV} = \$10,000$, $\text{CAC} = \$2,000$, an excellent $5:1$ return.
+  - _The Catch:_ The customer pays only $\$60/\text{month}$. Payback takes over
+    33 months ($\$2,000 / 60 = 33.3$).
+
+- **Failure Mode B: Short Payback, Unacceptable LTV**
+
+  > Cash recycles quickly, but the revenue does not cover full operational cost,
+  > company is loosing money
+  - $\text{CAC} = \$100$, customer pays $\$100$ in month 1
+    ($T_{\text{payback}} = 1\text{ month}$).
+  - _The Catch:_ The customer churns frequently. $\text{LTV}$ is only $\$120$,
+    yielding an LTV:CAC of only $1.2:1$.
+
+## Customer Acquisition Cost (CAC)
+
+CAC is the total financial expenditure required to convince a prospective
+customer to buy a product or service, measured over a specific time window.
+
+$$\text{CAC} = \frac{\text{Total Acquisition Expenses in Period } t}{\text{New Customers Acquired in Period } t}$$
+
+> **"Fully loaded"** means the calculation incorporates **every direct and
+> indirect expense** required to attract, nurture, and close customers, rather
+> than just direct media or advertising spend.
+>
+> When teams report a "simple" or "paid" CAC, they often look only at direct ad
+> spend (e.g., Google Ads or Meta spend divided by new signups).
+
+## LTV:CAC Multiple / Required Return Multiple
+
+$\theta$ (theta) is decision lever. It means the **return multiple** or **hurdle
+rate** that dictates how much Lifetime Value ($\text{LTV}$) a customer segment
+must generate for every dollar spent acquiring them ($\text{CAC}$) before
+management will approve marketing spend.
+
+In decision analysis, it sets the boundary for a sensible investment:
+
+$$\frac{\text{LTV}}{\text{CAC}} \ge \theta \quad \iff \quad \text{LTV} - \theta \cdot \text{CAC} \ge 0$$
+
+If a channel yields an expected $\text{LTV}$ of $\$3,000$ and the board demands
+$\theta = 3$, total marketing campaign is not allowed to spend more than
+$\frac{\$3,000}{3} = \$1,000$ to acquire each customer.
+
+**Why $\theta$ Must Be Greater Than 1 ($\theta > 1$)**
+
+Setting $\theta = 1$ would mean targeting a $1:1$ ratio
+($\text{LTV} = \text{CAC}$). While that sounds like financial break-even on
+paper, in reality it causes a company to lose money because of how operating
+expenses work:
+
+**LTV only accounts for gross profit:** $\text{LTV}$ measures recurring gross
+margin (revenue minus direct hosting, customer support, and merchant fees).
+
+> **Gross Profit / 毛利 does not represent the real gain; it overestimates the
+> actual financial benefit.**
+>
+> In finance and accounting, "gross" means _before deductions_.
+>
+> Gross revenue equals the total received from customers subtracting direct
+> service/product costs (COGS). It has not yet accounted for all the expenses
+> required to run the company, like engineering salaries, rent, software
+> licenses, and administrative costs.
+
+**CAC only accounts for acquisition:** $\text{CAC}$ covers sales and marketing
+expenses.
+
+> CAC underestimate costs.
+>
+> It does not over fixed overhead (OpEx), R&D, General and Administrative
+> expenses (G&A, legal, finance, executive payroll, office facilities) and
+> investor dividends.
+
+**No margin of safety** If retention drops slightly below forecast, a
+$\theta = 1$ immediately becomes loosing money.
+
+**The 3:1 Rule of Thumb**
+
+The industry standard of $\theta = 3$ in SaaS and subscription businesses
+reflects a balanced breakdown of long-term revenue:
+
+- **One-third to Sales & Marketing:** Covers fully loaded acquisition costs
+  ($\text{CAC}$).
+- **One-third to Product & Overhead:** Funds ongoing R&D, engineering, IT,
+  legal, and operational overhead.
+- **One-third to Operating Margin:** Generates operating profit (EBITDA), free
+  cash flow, and returns for capital providers.
+
+**Different Values of $\theta$ Signal to Leadership**
+
+- **$\theta < 1.0$ (Capital Destruction):** Every newly acquired customer
+  consumes more cash than they will ever return. Acquisition channels operating
+  here should be paused immediately.
+- **$1.0 \le \theta < 2.5$ (Cash-Starved Growth):** Acquisitions pay for their
+  own marketing expenses, but fail to cover company overhead. The company burns
+  cash reserves as customer volume increases.
+- **$3.0 \le \theta \le 4.0$ (Target Efficiency):** The capital deployment sweet
+  spot for sustainable scaling.
+- **$\theta > 5.0$ (Under-Investment):** An excessively high ratio usually
+  indicates the company is being overly conservative.
+
+## Working Capital Constraints
+
+These two terms govern **cash flow liquidity and working capital risk** in
+customer acquisition. $T_{\text{payback}}$ and $T_{\max}$ protect the company
+from **running out of cash before seeing returns** (Dying before the dawn).
+
+**$T_{\text{payback}}$: CAC Payback Period**
+
+$T_{\text{payback}}$ is the amount of time (usually in months) it takes for an
+acquired subscriber to generate enough cumulative gross margin to reimburse the
+upfront cost spent acquiring them ($\text{CAC}$).
+
+**$T_{\max}$: Maximum Allowable Payback Window**
+
+$T_{\max}$ is a hard financial risk boundary set by corporate finance or the
+board of directors. It dictates the maximum amount of time (usually in months)
+management is willing to wait before an acquisition recovers its initial capital
+investment.
+
+> Yes, it is profitable. But it that means become profitable in 100 years, then
+> that "profitability" is not defined for us mortals. Unless you mean they are
+> "profitable" for the species.
+
+Customer acquisition is a form of corporate lending: you front cash to the
+market today, hoping the market pays you back over time.
+
+> You are lending to a 100 year lease?
+
+If you acquire 1,000 customers this quarter at a fully loaded $\text{CAC}$ of
+$\$1,200$ each, your treasury must front $\$1,200,000$ in cash today.
+
+- If $T_{\text{payback}} = 10\text{ months}$, that cash returns within the
+  fiscal year and can be redeployed into new marketing campaigns.
+- If $T_{\text{payback}} = 36\text{ months}$, that $\$1,200,000$ remains locked
+  up for three years. If the company accelerates sales too quickly with long
+  payback periods, it can run out of cash and face insolvency—even if the
+  accounts are theoretically profitable over a 5-year timeline.
+
+**Standard Industry Benchmarks for $T_{\max}$:**
+
+- _Self-serve / SMB SaaS:_ 6 to 12 months.
+- _Mid-market SaaS:_ 12 to 18 months.
+- _Enterprise B2B:_ 18 to 24 months.

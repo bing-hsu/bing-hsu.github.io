@@ -1,0 +1,2 @@
+{{ $member := .page }}
+<a href="{{ $member.RelPermalink }}" lang="{{ $member.Language.Locale }}" {{ if eq .current.RelPermalink $member.RelPermalink }}aria-current="page"{{ end }}><span class="series-number">{{ partial "series-number.html" $member }}</span> {{ $member.Title }}</a>{{ if ne .current.Language.Lang $member.Language.Lang }} <span class="series-language">({{ i18n "seriesEnglish" }})</span>{{ end }}

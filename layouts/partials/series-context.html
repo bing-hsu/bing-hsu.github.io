@@ -1,0 +1,26 @@
+{{- $context := dict -}}
+{{- with .Params.seriesID -}}
+  {{- $id := . -}}
+  {{- $byOrder := dict -}}
+  {{- range hugo.Sites -}}
+    {{- if eq .Language.Lang "en" -}}
+      {{- range where .RegularPages "Params.seriesID" $id -}}
+        {{- $byOrder = merge $byOrder (dict (string .Params.seriesOrder) .) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range where $.Site.RegularPages "Params.seriesID" $id -}}
+    {{- $byOrder = merge $byOrder (dict (string .Params.seriesOrder) .) -}}
+  {{- end -}}
+  {{- $members := sort $byOrder "Params.seriesOrder" -}}
+  {{- $chapters := where $members "Params.seriesRole" "chapter" -}}
+  {{- $sections := where $members "Params.seriesRole" "section" -}}
+  {{- $previous := false -}}
+  {{- $next := false -}}
+  {{- range $members -}}
+    {{- if lt .Params.seriesOrder $.Params.seriesOrder -}}{{- $previous = . -}}{{- end -}}
+    {{- if and (not $next) (gt .Params.seriesOrder $.Params.seriesOrder) -}}{{- $next = . -}}{{- end -}}
+  {{- end -}}
+  {{- $context = dict "chapters" $chapters "sections" $sections "previous" $previous "next" $next -}}
+{{- end -}}
+{{- return $context -}}

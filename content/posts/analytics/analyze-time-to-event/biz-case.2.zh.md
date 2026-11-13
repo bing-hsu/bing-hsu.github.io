@@ -1,0 +1,95 @@
++++
+date = '2026-11-13T18:10:37+08:00'
+draft = true
+title = '商业案例'
+description = "从生存分析（survival analysis）出发，通向获客投资、客户生命周期规划与留存资源配置的路线图。"
+tags = ['数据分析']
+translationKey = 'analyze-time-to-event-2'
+math = true
+seriesID = 'analyze-time-to-event'
+seriesTitle = 'Analyze Time-to-Event'
+seriesRole = 'chapter'
+seriesChapter = 2
+seriesSection = 0
+seriesOrder = 200
++++
+
+> 这是一次基于
+> [TelCo 客户流失数据集（TelCo Customer Churn dataset）](https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data)
+> 的商业案例框架构建练习。本系列文章旨在建立决策框架（decision
+> frameworks），得到的分析结果不作为实际商业行为决策依据。
+
+一条客户生存曲线（survival
+curve）所能回答的问题，远不止“客户会留存多久？”。它还可以指导我们在获客（acquisition）上投入多少资金、何时筹备生命周期（lifecycle）运营动作，以及如何集中配置留存（retention）团队的有限精力。
+
+本章通过同一个共享的生存过程（survival process）$S(t \mid x)$
+将这些决策串联起来。每个案例都从一项商业问题出发，明确所需的分析输出，并据此推导出相应的决策规则（decision
+rule）。
+
+## 管理架构
+
+这三个目标共同构成了一套受同一生存过程支配的管理架构：
+
+- **案例 2.1 —— 获客 / 财务视角（Acquisition / Financial）：**
+  利用预期客户价值与回本周期（payback）约束，判断哪些获客机会值得投资。
+- **案例 2.2 —— 生命周期 / 结构视角（Lifecycle / Structural）：**
+  识别客户在网时长（customer
+  tenure）中的高风险窗口期，从而为运营团队留出充足的前置准备时间（operational
+  lead time），制定恰当的应对措施。
+- **案例 2.3 —— 留存 / 战术视角（Retention / Tactical）：**
+  综合近期流失风险（near-term churn risk）、风险敞口下的财务价值（financial
+  value at stake）、干预成本（intervention cost）与预期干预效果（expected
+  effectiveness），对单个客户账户进行优先级排序。
+
+阅读顺序遵循客户旅程（customer
+journey）的演进逻辑：**获客（acquire） → 管理生命周期（manage the
+lifecycle） → 配置留存资源（allocate retention
+effort）**。它们是相互关联的管理视角，而非三个彼此独立的模型。例如，获客决策本身就依赖于对未来客户留存情况的假设。
+
+## 案例 2.1：客户生命周期价值与获客决策 {#objective-3-customer-lifetime-value-ltv-forecasting--capital-allocation}
+
+**我们能负担得起获取哪些客户，以及在什么条件下获取？**
+
+这一上游决策利用生存曲线（survival
+curve）来估算折现后的客户生命周期价值（discounted Lifetime Value,
+LTV）。回报阈值设定了诸如 $\text{CAC} \le \text{LTV}/\theta$ 的边界（其中
+$\text{CAC}$ 为客户获取成本，Customer Acquisition
+Cost），而回本周期约束（payback
+constraint）则用于检验现金回流的速度是否足以支撑业务运转。
+
+{{< series-link "posts/analytics/analyze-time-to-event/biz-case.2-1.zh.md" "阅读第 2.1 节：客户生命周期价值与获客决策 →" >}}
+
+## 案例 2.2：风险轨迹与客户生命周期规划 {#objective-2-subscriber-lifetime-risk-level-characterization}
+
+**业务团队应当在何时做好行动准备？**
+
+这一结构视角通过审视风险轨迹（hazard trajectory），识别续约断崖（renewal
+cliffs）及其他风险窗口期。它将风险发生的时间节点与运营团队所需的前置准备时间（lead
+time）联系起来，帮助团队在关键节点到来之前提前部署。
+
+{{< series-link "posts/analytics/analyze-time-to-event/biz-case.2-2.zh.md" "阅读第 2.2 节：风险轨迹与客户生命周期规划 →" >}}
+
+## 案例 2.3：留存资源配置 {#objective-1-short-horizon-intervention-resource-allocation}
+
+**在资源与精力有限的前提下，我们下一步应该重点挽留谁？**
+
+这一战术视角将近期流失风险（near-term churn risk）与风险敞口下的客户价值（value
+at stake）、干预成本（cost of intervention）以及干预效果（effectiveness of
+intervention）结合起来。其目的在于为资源受限的团队构建一套切实可用的优先级排序规则（prioritization
+rule）。
+
+{{< series-link "posts/analytics/analyze-time-to-event/biz-case.2-3.zh.md" "阅读第 2.3 节：留存资源配置 →" >}}
+
+## 共享的证据，不同的决策
+
+预测出的流失风险并不等同于干预措施的实际效果（intervention
+effect）。知道哪些客户可能会流失，并不能直接说明挽留动作对谁真正有效。同样地，任何拟定的决策阈值（threshold）或生命周期规律在成为正式的运营策略之前，都需要经过实证检验。
+
+贯穿整个系列，请始终注意区分三件事：模型的预测输出（model's
+output）、做出决策所需的假设条件（assumptions），以及能够证明采取该行动是否有效的经验证据（evidence）。
+
+## 数学基础
+
+关于删失（censoring）、潜在事件时间（latent event times）、生存函数（survival
+functions）、风险率（hazard）以及累积风险（cumulative hazard）的背景知识，请参阅
+{{< series-link "posts/analytics/analyze-time-to-event/data-math.1.zh.md" "数据与数学工具集" >}}。第一章介绍了本系列共用的数据结构与数学工具；每当需要厘清符号含义时，都可随时回顾该章。

@@ -1,0 +1,6 @@
+{{ with partial "series-context.html" . }}
+<nav class="article-pagination series-pagination" aria-label="{{ i18n "seriesNavigation" }}">
+  {{ with .previous }}<a class="series-previous" href="{{ .RelPermalink }}"><span class="eyebrow">{{ i18n "seriesPrevious" }}</span><span>{{ partial "series-number.html" . }} — {{ .Title }}</span></a>{{ end }}
+  {{ with .next }}<a class="series-next" href="{{ .RelPermalink }}"><span class="eyebrow">{{ i18n "seriesNext" }}</span><span>{{ partial "series-number.html" . }} — {{ .Title }}</span></a>{{ end }}
+</nav>
+{{ end }}

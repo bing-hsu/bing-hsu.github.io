@@ -5,7 +5,7 @@ other = "Skip to content"
 other = "Bertram, home"
 
 [identity]
-other = "Judgment & Building"
+other = "Analytics & Building"
 
 [navigation]
 other = "Main navigation"
@@ -41,7 +41,7 @@ other = "This page is not available in Chinese yet."
 other = "中文首页 ↗"
 
 [eyebrow]
-other = "Judgment & Building"
+other = "Analytics & Building"
 
 [headline]
 other = "Better questions."
@@ -53,7 +53,7 @@ other = "Clearer decisions."
 other = "Useful software."
 
 [intro]
-other = "Hey, I’m Bertram! I bring analysis and hands-on building together to understand real business problems and turn ideas into useful solutions."
+other = "Hey, I’m Bertram! I bring analysis and software building together to understand real business problems and turn ideas into useful solutions."
 
 [explore]
 other = "Explore my writing"
@@ -267,3 +267,42 @@ other = "SOFTWARE"
 
 [diagramOutcome]
 other = "OUTCOME"
+
+[imageViewer]
+other = "Image preview"
+
+[enlargeImage]
+other = "Enlarge image"
+
+[imageActualSize]
+other = "Actual size"
+
+[imageFit]
+other = "Fit to window"
+
+[imageClose]
+other = "Close"
+
+[imagePan]
+other = "Image area; scroll to explore at actual size"
+
+[seriesLabel]
+other = "Series"
+
+[seriesRoadmap]
+other = "Series roadmap"
+
+[seriesEnglish]
+other = "English content"
+
+[seriesNavigation]
+other = "Series navigation"
+
+[seriesPrevious]
+other = "← Previous in series"
+
+[seriesNext]
+other = "Next in series →"
+
+[seriesPlanned]
+other = "Planned"

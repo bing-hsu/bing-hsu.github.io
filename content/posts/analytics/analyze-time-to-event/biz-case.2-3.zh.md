@@ -1,0 +1,81 @@
++++
+date = '2026-11-13T18:10:37+08:00'
+draft = true
+title = "安排挽留干预作业"
+description = "围绕近期流失风险、风险敞口下的价值、干预有效性以及有限的运营能力，构建留存优先级排序框架。"
+tags = ['数据分析']
+translationKey = 'allocating-retention-resources'
+math = true
+seriesID = 'analyze-time-to-event'
+seriesTitle = '事件时间分析'
+seriesRole = 'section'
+seriesChapter = 2
+seriesSection = 3
+seriesOrder = 203
++++
+
+商业问题：在未来一段时间内的 **有限干预资源（limited intervention resources）**
+条件下，应当针对哪些用户实施挽留干预（retention intervention）？
+
+## 分析输出
+
+我们希望估计订阅用户在未来时间窗口 $\Delta t$ 内的短期流失概率（short-term churn
+probability）：
+
+> $P_{\text{churn}}$ 是对
+> ["潜在事件时间（latent event time）$T^*$"](./analyze-time-to-event-1.zh.md#潜在事件时间)
+> 进行建模的副产品。
+
+$$P_{\text{churn}} = P[t \le T < t + \Delta t \mid T \ge t]$$
+
+$P_{\text{churn}}$ 可通过风险率（hazard rate）估计得到：
+
+$$P_{\text{churn}} = h(t) \times \Delta t$$
+
+其中 $h(t)$ 为：
+
+$$h(t) = \lim_{\Delta t \to 0} \frac{P(t \le T < t + \Delta t \mid T \ge t)}{\Delta t}$$
+
+## 商业考量
+
+**在险价值（Value-at-Risk, VaR）**
+
+将订阅用户的**流失概率（churn probability）**与其**收入潜力（revenue
+potential）**相结合，我们可以构建一个风险度量指标：**_在险价值（Value-at-Risk,
+VaR）_**。
+
+订阅用户的收入潜力通常用 **MRR**（月度经常性收入，Monthly Recurring Revenue）或
+**ARR**（年度经常性收入，Annual Recurring Revenue）来表示。
+
+因此，订阅用户 $i$ 的在险价值为：
+
+$$\text{VaR}_i = P^i_{\text{churn}} \times \text{MRR}_i$$
+
+**预期挽回收入（Expected Revenue Saved）**
+
+预期挽回收入可表示为：
+
+$$
+\mathbb{E} \left[ \text{revenue saved} \right] = \text{VaR} \times  P_{\text{success}}
+$$
+
+其中 $P_{\text{success}}$ 为干预成功的概率。
+
+**干预成本（Intervention Cost）**
+
+实施挽留干预动作会消耗运营资源，记为干预成本 $C$。
+
+## 决策规则
+
+当 **预期挽回收入（expected revenue saved）** 超过 **干预的运营成本**
+时，即触发挽留干预。
+
+因此，该决策规则可表述为：
+
+$$
+\text{Intervene: } \; \text{if } \;
+\mathbb{E} \left[ \text{revenue saved} \right] = \text{VaR} \times
+P_{\text{success}} > C
+$$
+
+我们可以依据这一规则筛选出需要采取挽留干预措施的客户名单。

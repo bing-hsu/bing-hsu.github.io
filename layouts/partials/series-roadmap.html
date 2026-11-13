@@ -1,0 +1,19 @@
+{{ $page := . }}
+{{ with partial "series-context.html" . }}
+{{ $context := . }}
+<aside id="series-roadmap" class="series-roadmap" aria-label="{{ i18n "seriesRoadmap" }}">
+  <div class="series-heading"><span class="eyebrow">{{ i18n "seriesLabel" }}</span><span class="series-title">{{ $page.Params.seriesTitle }}</span></div>
+  <details open>
+    <summary>{{ i18n "seriesRoadmap" }}</summary>
+    <nav aria-label="{{ i18n "seriesRoadmap" }}">
+      <ol>{{ range .chapters }}
+        <li>{{ partial "series-item.html" (dict "page" . "current" $page) }}
+          {{ with where $context.sections "Params.seriesChapter" .Params.seriesChapter }}
+          <ol>{{ range . }}<li>{{ partial "series-item.html" (dict "page" . "current" $page) }}</li>{{ end }}</ol>
+          {{ end }}
+        </li>
+      {{ end }}</ol>
+    </nav>
+  </details>
+</aside>
+{{ end }}

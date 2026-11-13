@@ -5,12 +5,11 @@
 This is Bertram’s personal website, built with Hugo and published on GitHub
 Pages at https://bing-hsu.github.io/.
 
-- The site identity is **Judgment & Building** in both English and Chinese.
+- The site identity is **Analytics & Building** in both English and Chinese.
   Keep this subtitle in English on the Chinese site; do not translate it as
   “判断与构建”. Omit the redundant identity eyebrow above the homepage headline.
-  Its slogan is
-  “Better questions. Clearer decisions. Useful software.” The Chinese homepage
-  expresses this as “问清问题，做出判断，把方案落地。”
+  Its slogan is “Better questions. Clearer decisions. Useful software.” The
+  Chinese homepage expresses this as “问清问题，做出判断，把方案落地。”
 - Present two mutually supporting pillars:
   - **Intelligence Analysis & Decision Support / 情报分析与决策支持**: use data
     analysis, intelligence research, and business context to connect evidence,
@@ -18,9 +17,9 @@ Pages at https://bing-hsu.github.io/.
   - **Outcome-Driven Engineering / 结果导向的工程实践**: work close to users and
     real operations, identify bottlenecks, make product trade-offs, and build
     practical software whose usefulness can be evaluated in actual use.
-- Connect the pillars through the path from understanding a business problem
-  to forming a judgment, building a solution, and learning from its effects.
-  Do not narrow the identity back to analytics alone.
+- Connect the pillars through the path from understanding a business problem to
+  forming a judgment, building a solution, and learning from its effects. Do not
+  narrow the identity back to analytics alone.
 - Founder mindset means initiative, ownership, judgment, and follow-through.
   FDE, GTM Engineer, and Product Engineer are reference approaches, not claims
   that Bertram currently holds those titles or has founded a company.
@@ -45,14 +44,15 @@ browser JavaScript. No external theme or frontend framework is required.
 
 - `hugo.toml`: language configuration, site metadata, social links, and Markdown
   configuration.
-- `i18n/en.toml` and `i18n/zh.toml`: interface strings and localized homepage copy.
+- `i18n/en.toml` and `i18n/zh.toml`: interface strings and localized homepage
+  copy.
 - `content/_index.en.md` and `content/_index.zh.md`: paired homepages.
 - `content/about.en.md`, `content/about.zh.md`, and `layouts/about.html`:
   approved personal introduction and About presentation.
 - `content/posts/`: articles, with Markdown content and front matter.
-- `layouts/home.html`: homepage layout and inline SVG illustration; localized copy
-  comes from the translation files. The homepage has no separate pillars section;
-  the About page explains the two-pillar positioning.
+- `layouts/home.html`: homepage layout and inline SVG illustration; localized
+  copy comes from the translation files. The homepage has no separate pillars
+  section; the About page explains the two-pillar positioning.
 - `layouts/baseof.html`: shared shell, navigation, and footer.
 - `layouts/partials/languages.html`: language switcher and missing-translation
   guidance.
@@ -81,14 +81,14 @@ browser JavaScript. No external theme or frontend framework is required.
 - Preserve the warm paper background, restrained green accents, and readable
   editorial layout unless the user requests a new direction.
 - Both English and Chinese use sans-serif headings and body text. The shared
-  font stack is `Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-  "WenQuanYi Micro Hei", "Noto Sans CJK", sans-serif`. These are system-font
-  preferences; do not bundle proprietary system fonts.
+  font stack is
+  `Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Noto Sans CJK", sans-serif`.
+  These are system-font preferences; do not bundle proprietary system fonts.
 - Monospaced text uses `JetBrainsMono, monospace`, with locally served regular,
   bold, italic, and bold italic WOFF2 files and `font-display: swap`. Do not add
   an external font CDN dependency. MathJax retains its own mathematical fonts.
-- Navigation order is About → Writing → Topics → Search, localized as
-  关于我 → 文章 → 主题 → 搜索. Keep the language switcher separate.
+- Navigation order is About → Writing → Topics → Search, localized
+  as 关于我 → 文章 → 主题 → 搜索. Keep the language switcher separate.
 - GitHub is the current social link. The X link was explicitly removed; do not
   restore it without a request.
 - Keep navigation, article content, and topic browsing usable without
@@ -109,21 +109,22 @@ browser JavaScript. No external theme or frontend framework is required.
 
 ## English and Chinese
 
-- Use Hugo native multilingual support with shared templates and styles.
-  English is the default at `/`; simplified Chinese is at `/zh/`. Preserve
-  existing English article URLs.
+- Use Hugo native multilingual support with shared templates and styles. English
+  is the default at `/`; simplified Chinese is at `/zh/`. Preserve existing
+  English article URLs.
 - Use translation keys for interface text rather than scattering hardcoded
-  English or Chinese across templates. Write natural localized copy rather
-  than forcing word-for-word translations.
+  English or Chinese across templates. Write natural localized copy rather than
+  forcing word-for-word translations.
 - Pair content with language suffixes (`example.en.md`, `example.zh.md`) or a
-  shared front matter `translationKey`. Existing unsuffixed articles are English.
+  shared front matter `translationKey`. Existing unsuffixed articles are
+  English.
 - Both languages can publish independently. Existing technical articles remain
   English unless translation is requested; never copy them into Chinese routes
   merely to populate the archive. Empty Chinese archives link explicitly to
   English content.
 - Switch directly to the corresponding translation when one exists. Otherwise,
-  explain that it is unavailable and offer the other language's homepage.
-  Do not silently redirect or force browser-language detection.
+  explain that it is unavailable and offer the other language's homepage. Do not
+  silently redirect or force browser-language detection.
 - Use language-aware URLs for navigation and language-neutral URLs for shared
   static assets. Localize dates, reading labels, titles, and descriptions.
 - Generate canonical URLs and `lang` attributes for each language, with

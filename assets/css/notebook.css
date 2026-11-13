@@ -952,3 +952,67 @@ html:lang(zh) .eyebrow { letter-spacing: 1px; }
 @media (max-width: 600px) {
   .diagram-stages { font-size: 8px; }
 }
+
+/* Article images remain plain images without JavaScript. */
+.image-zoom-trigger {
+  display: inline-block;
+  max-width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  line-height: 0;
+  vertical-align: middle;
+  cursor: zoom-in;
+}
+.image-zoom-trigger:focus-visible { outline: 2px solid var(--green); outline-offset: 5px; }
+.image-viewer-open { overflow: hidden; }
+.image-viewer {
+  width: calc(100vw - 48px);
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  box-sizing: border-box;
+  box-shadow: 0 20px 80px #0004;
+}
+.image-viewer::backdrop { background: #182019cc; }
+.image-viewer-toolbar { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.image-viewer button { font: 13px var(--sans); color: var(--ink); background: transparent; border: 1px solid var(--line); padding: 8px 14px; border-radius: 4px; cursor: pointer; }
+.image-viewer button:focus-visible, .image-viewer-stage:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.image-viewer-stage { max-height: calc(100dvh - 190px); overflow: auto; overscroll-behavior: contain; text-align: center; background: white; }
+.image-viewer-stage img { display: block; max-width: 100%; max-height: calc(100dvh - 190px); width: auto; height: auto; margin: auto; }
+.image-viewer.is-actual-size .image-viewer-stage { text-align: left; }
+.image-viewer.is-actual-size img { max-width: none; max-height: none; margin: 0; }
+.image-viewer-caption { margin: 12px 0 0; font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .image-viewer { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); padding: 12px; }
+}
+@media print { .image-viewer { display: none !important; } }
+
+/* Explicit series order is independent of publication date. */
+.series-roadmap { margin: 0 0 32px; border: 1px solid var(--line); border-radius: 4px; padding: 22px 26px; background: var(--wash); }
+.series-heading { display: flex; flex-direction: column; gap: 6px; }
+.series-heading > .series-title { font-size: 18px; font-weight: 500; color: var(--green); }
+.series-roadmap summary { cursor: pointer; margin-top: 15px; font-size: 12px; color: var(--muted); }
+.series-roadmap nav { margin-top: 20px; font-size: 14px; }
+.series-roadmap ol { list-style: none; margin: 0; padding-left: 0; }
+.series-roadmap ol ol { margin: 6px 0 0; padding-left: 24px; }
+.series-number { font-family: var(--mono); color: var(--green); margin-right: 6px; }
+.series-language { font-size: 11px; color: var(--muted); }
+.series-roadmap li { padding: 7px 0 7px 8px; }
+.series-roadmap li::marker { font-family: var(--mono); color: var(--muted); }
+.series-roadmap li p { font-size: 12px; color: var(--muted); margin: 5px 0 0; max-width: 700px; }
+.series-roadmap a[aria-current] { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.series-badge { display: inline-block; font: 9px/1.6 var(--mono); border: 1px solid var(--line); padding: 2px 7px; margin: 0 10px 6px 0; color: var(--green); }
+.series-pagination .series-previous { grid-column: 1; text-align: left; }
+.series-pagination .series-next { grid-column: 2; text-align: right; }
+@media (max-width: 600px) {
+  .series-roadmap { padding: 18px; }
+  .series-heading > .series-title { font-size: 16px; }
+  .series-roadmap nav { font-size: 13px; }
+}

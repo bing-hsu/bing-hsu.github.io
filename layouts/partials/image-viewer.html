@@ -1,0 +1,9 @@
+<dialog class="image-viewer" aria-label="{{ i18n "imageViewer" }}" aria-describedby="image-viewer-caption" data-image-viewer data-enlarge-label="{{ i18n "enlargeImage" }}" data-actual-label="{{ i18n "imageActualSize" }}" data-fit-label="{{ i18n "imageFit" }}">
+  <div class="image-viewer-toolbar">
+    <button type="button" data-image-size aria-pressed="false">{{ i18n "imageActualSize" }}</button>
+    <button type="button" data-image-close autofocus>{{ i18n "imageClose" }} <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="image-viewer-stage" tabindex="0" role="region" aria-label="{{ i18n "imagePan" }}"><img alt="" data-image-preview></div>
+  <p id="image-viewer-caption" class="image-viewer-caption"></p>
+</dialog>
+<script defer src="{{ "js/image-viewer.js" | relURL }}"></script>

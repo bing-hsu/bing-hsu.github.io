@@ -5,7 +5,7 @@ other = "跳至正文"
 other = "Bertram，首页"
 
 [identity]
-other = "Judgment & Building"
+other = "Analytics & Building"
 
 [navigation]
 other = "主导航"
@@ -41,16 +41,16 @@ other = "此页面暂无英文版。"
 other = "English home ↗"
 
 [eyebrow]
-other = "Judgment & Building"
+other = "Analytics & Building"
 
 [headline]
-other = "问正确的问题，"
+other = "正确的问题，"
 
 [headline2]
-other = "做清晰的判断，"
+other = "清晰的判断，"
 
 [headline3]
-other = "落地有用解决方案。"
+other = "有用的解决方案。"
 
 [intro]
 other = "嗨，我是 Bertram！我喜欢把数据分析与软件构建结合起来，理解真实的业务问题，让想法变成有用的解决方案。"
@@ -267,3 +267,42 @@ other = "软件"
 
 [diagramOutcome]
 other = "结果"
+
+[imageViewer]
+other = "图片预览"
+
+[enlargeImage]
+other = "放大图片"
+
+[imageActualSize]
+other = "原始尺寸"
+
+[imageFit]
+other = "适应窗口"
+
+[imageClose]
+other = "关闭"
+
+[imagePan]
+other = "图片区域；原始尺寸下可滚动查看"
+
+[seriesLabel]
+other = "系列文章"
+
+[seriesRoadmap]
+other = "系列目录"
+
+[seriesEnglish]
+other = "英文"
+
+[seriesNavigation]
+other = "系列导航"
+
+[seriesPrevious]
+other = "← 系列上一篇"
+
+[seriesNext]
+other = "系列下一篇 →"
+
+[seriesPlanned]
+other = "待发布"

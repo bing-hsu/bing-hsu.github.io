@@ -1,0 +1,8 @@
+{{- $target := .Get 0 -}}
+{{- $label := .Get 1 -}}
+{{- $fragment := .Get 2 | default "" -}}
+{{- with .Page.Site.GetPage $target -}}
+<a href="{{ .RelPermalink }}{{ $fragment }}">{{ $label }}</a>
+{{- else -}}
+<span class="series-planned">{{ $label }} — {{ i18n "seriesPlanned" }}</span>
+{{- end -}}

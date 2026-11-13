@@ -1,0 +1,198 @@
++++
+date = '2026-11-13T18:10:37+08:00'
+draft = true
+title = "客户生命周期阶段刻画"
+description = "利用风险轨迹理解客户风险窗口期、续约断崖以及生命周期运营动作所需的前置准备时间。"
+tags = ['数据分析']
+translationKey = 'hazard-trajectories-lifecycle-planning'
+math = true
+seriesID = 'analyze-time-to-event'
+seriesTitle = '事件时间分析'
+seriesRole = 'section'
+seriesChapter = 2
+seriesSection = 2
+seriesOrder = 202
++++
+
+商业问题：**订阅用户何时进入高风险阶段，团队又需要提前多久做好准备？**
+本节将客户生命周期（customer lifecycle）划分为不同的风险窗口期（risk
+windows），从而为这些运营动作的介入时机提供依据。
+
+## 分析输出
+
+我们需要估计风险轨迹（hazard
+trajectory）$\hat{h}(t)$，其定义为在网时长（tenure）达到 $t$
+之前仍保持留存的条件下，在时刻 $t$ 的瞬时失效率（instantaneous failure rate）：
+
+$$h(t) = \lim_{\Delta t \to 0} \frac{P(t \le T < t + \Delta t \mid T \ge t)}{\Delta t}$$
+
+**理解“风险率（Hazard）”的含义**
+
+从定义上看，风险率（hazard）意味着在 "紧接着的下一个瞬间" 遭遇目标事件的概率。
+
+让我们结合具体情境来帮助理解。假设用户 A 的风险率为
+$h_A = 0.4$，用户 B 的风险率为
+$h_B = 2.4$（没错，风险率是可以大于 1 的；它本身并不是一个概率）。
+
+假设在我们的研究中，时间单位以“月”来衡量。对于接下来的一天（$\Delta t = 0.033$
+个月）：
+
+> 每月平均天数 = $\frac{365}{12} \approx 30.417$ 天，因此 1 天约为
+> $\frac{1}{30.417} \approx 0.033$ 个月。
+
+- A 遭遇事件的概率为 $h_A \times \Delta t = 0.013$
+- B 遭遇事件的概率为 $h_B \times \Delta t = 0.079$
+
+B 遭遇事件的**可能性是 A 的 *$6.1$ 倍***。
+
+那如果我们想知道未来
+_2 周_（$\Delta t = 0.033 \times 14 = 0.462$）内发生事件的概率呢？尴尬的事情发生了：
+
+- B 遭遇事件的概率变成了 $h_B \times \Delta t = 1.11$。
+
+概率怎么可能大于 $1$
+呢？B 在未来两周内完全有可能不会遭遇事件，因此这并非必然发生；而且大于 1 的概率（比“确定发生”还要确定）在逻辑上也说不通。
+
+这正是我们前文强调 **“紧接着的下一个瞬间”**
+的原因。只有当你选取的预测时间跨度（$\Delta t$）足够小时，这种概率解释才成立。那么，我们该如何理解这个
+$1.11$ 呢？
+
+注意观察 $h(t)$
+的量纲（dimension）：$\text{time}^{-1}$（时间的倒数），这是“频率（单位时间内的发生次数）”这一度量的典型特征。因此，我们可以从这个角度来理解
+$h$：将 $h(t)$
+读作一种“速率（rate）”或“频率（frequency）”——即“每单位时间预期经历多少次事件”。
+
+这样一来，B 的 $1.11$
+就可以理解为“B 在未来 2 周内预期会经历 1.11 次事件”；相比之下，“A 在未来 2 周内预期会经历
+$0.18$ 次事件”。
+
+尽管我们切换了理解视角，但核心结论并未改变：B 对该事件的**易感性（susceptibility）依然是 A 的
+*$1.11 / 0.18 \approx 6.1$ 倍***。
+
+> **类比“电子游戏中的复活”**
+>
+> 对于像“死亡”这样的终结性事件（terminal event），说一个人能经历 $2.4$
+> 次死亡听起来确实……很奇怪。我们可以借助电子游戏中的复活机制来理解。
+>
+> 想象两名玩家正在玩一款街机游戏，每当英雄“阵亡”时，都会立即原地复活（respawn）。
+>
+> - 玩家 A 平均每 10 分钟的死亡 $0.5$
+>   次，意味着 A 要么正处于简单关卡，要么游戏技术更娴熟。
+> - 相比之下，玩家 B 平均每 10 分钟的死亡高达 $9.5$
+>   次，意味着 B 要么进入了极高难度的关卡，要么单纯是操作太菜。
+>
+> 无论如何，$0.5$ 和 $9.5$
+> 这两个风险率数值，直观地刻画了每位玩家在游戏中失败的易感程度（susceptibility）。
+
+## 商业考量
+
+当我们以在网时长 $t$ 对风险率进行参数化得到 $h(t)$
+时，我们就获得了**关于订阅用户在其生命周期不同阶段“对事件易感程度”的完整刻画**。
+
+**阶段划分（Partitioning Stages）**
+
+基于 $\hat{h}(t)$，我们通过寻找局部极大值（local
+maxima）来识别关键的风险断崖（risk cliffs / 切分节点）：
+
+$$
+\mathcal{T}_{\text{spike}} = \left\{ t_m^* \in \mathbb{R}_{>0} \mid \; h^{'}(t^*_m) = 0  \quad \text{and} \quad h^{''}(t^*_m)  < 0 \right\}
+$$
+
+> 上述数学表达式本质上就是局部极大值（local maxima）的定义：
+>
+> - 一阶导数 $h^{'}(t^*_m) = 0$，用于定位极值点（极大值或极小值）
+> - 二阶导数 $h^{''}(t^*_m) < 0$，确保该极值点为局部极大值
+
+每一个 $t_m^*$ 都标志着客户旅程（customer
+journey）中的一个关键风险断崖——即瞬时流失率（instantaneous
+churn）达到局部峰值的时刻，也是介入的决策时机参考点。
+
+**预警触发窗口期（Early-Warning Trigger Horizon）**
+
+主动干预（proactive intervention）需要预留一定的运营前置准备时间（operational
+lead time）$k_m > 0$，以确保挽留动作能在用户的流失意向变得不可逆转之前实施。
+
+对于每一个风险峰值 $t_m^*$，干预窗口（intervention window）的开启时间为：
+
+$$\tau_m = t_m^* - k_m$$
+
+**生命周期分区（Lifetime Partition）**
+
+连续的在网时长轴 $\mathbb{R}_{\ge 0}$ 被划分为 $M+1$
+个互斥且穷尽的运营区间（operational
+regimes）$\mathcal{S}_0, \mathcal{S}_1, \dots, \mathcal{S}_M$：
+
+- $\mathcal{S}_1 = [0, t_1^*]$：新手引导与产品采纳期（Onboarding & Adoption
+  Regime）
+- $\mathcal{S}_2 = [t_2^* - k_2, t_2^*]$：续约前风险窗口期（Pre-Renewal Risk
+  Regime）
+- ...
+
+**订阅制业务的典型风险轨迹（Typical Hazard Trajectory）**
+
+> 参见[交互式风险轨迹图（interactive hazard trajectory）](/html/Continuous-Hazard-Trajectory.html)
+
+在订阅制业务中，经验风险轨迹（empirical hazard trajectory）$h(t)$
+由两股同时作用的力量交织而成：
+
+- 由用户群组逐步成熟（cohort maturation）所带来的**持续下降的基线风险（declining
+  baseline risk）**
+- 由周期性账单扣款触发所引发的**周期性尖锐峰值（sharp periodic spikes）**
+
+订阅首年的典型风险曲线通常呈现出五个截然不同的阶段：
+
+<figure style="text-align: center;">
+<img src="/img/analytics/hazard-trajectory.png" alt="Hazard trajectory over the first year" />
+</figure>
+
+**1. 新手引导摩擦窗口期（Onboarding Friction
+Window，$t = 0 \text{ 至 } 14\text{ 天}$）**
+
+> 标志着 **试用与激活阶段（Trial & Activation Stage）**
+> 的结束：在跨过首个付费承诺门槛（commitment
+> gate）之前，聚焦于实现价值时间（time-to-value）、产品初始化配置以及核心功能采纳（feature
+> adoption）。
+
+- 未能发现产品初始价值或在配置过程中遇到阻碍的客户，会在此做出明确的“放弃或转化（abandon
+  or convert）”抉择。
+- 风险曲线起点处于中等偏高水平，随着主动引导（active
+  onboarding）介入而略有回落，随后在试用期结束时急剧飙升，形成第一个主要峰值——即“放弃或转化”的关键时刻。
+
+**2. 首次续约冲击（First Renewal Shock，$t = 30\text{ 天}$）**
+
+> 标志着 **早期留存 / 脆弱阶段（Early Retention / Fragile Stage）** 的结束：在首次周期性扣款发生前，持续验证产品的经常性实用价值（recurring
+> utility），并缓解客户的购后懊悔情绪（buyer's remorse）。
+
+- 迎来首次真实的扣款。产生购后懊悔或忘记自己曾经注册订阅的用户，将面对第一份明确的账单。
+- 风险曲线呈现出一个尖锐且狭窄的波峰（$t_1^* \approx 30\text{ 天}$），代表整个客户生命周期中单月最高的流失峰值。
+
+**3. 衰减的周期性脉冲（Dampening Cadence，$t = 60, 90, 120\text{ 天}$）**
+
+> 标志着 **习惯养成阶段（Habituation Stage）** ：深化产品与客户工作流的融合（workflow
+> integration），使服务成为其日常标准操作的一部分。
+
+- 随着每一个计费周期的推移，用户的边际流失倾向（marginal propensity to
+  churn）逐步降低，因为留存下来的用户池中，高忠诚度核心用户（committed power
+  users）的占比越来越高。
+- 风险曲线每隔 30 天就会出现一次周期性波峰，但随后的每一个波峰高度都低于前一次（$h(t_2^*) > h(t_3^*) > h(t_4^*)$）。
+
+**4. 计费周期之间的平稳低谷期（Quiescent Inter-Cycle Valleys）**
+
+> 标志着 **成熟采纳阶段（Mature Adoption Stage）** ：在低风险基线月份中，重点推进账户增购（account
+> expansion）、团队席位扩充（team seat additions）以及客户口碑推荐（customer
+> advocacy）。
+
+- 一旦当期续费扣款完成，用户很少在计费周期中途主动发起取消订阅。在下一个计费触发点临近之前，他们的瞬时流失风险始终处于被抑制的低位。
+- 在相邻两个波峰之间（例如第 40–50 天或第 70–80 天），风险曲线大幅回落并趋近于基线水平（$h(t) \approx \text{接近于零}$）。
+
+**5. 年度续约断崖（Annual Renewal Cliff，$t = 365\text{ 天}$）**
+
+> 标志着**合同续约阶段（Contract Renewal
+> Stage）**：在 365 天续约断崖到来之前，充分展示年度投资回报率（annual
+> ROI）、筹备高管复盘（executive review prep）并开展商务谈判（commercial
+> negotiation）。
+
+- 这是一个重大的合同续约里程碑。年付订阅客户需要经历预算审查（budget
+  reviews）、采购重新评估（procurement
+  re-evaluations）以及管理层审批签字（executive sign-offs）。
+- 风险曲线上出现一个显著高于周边月份的孤立高耸波峰（$t_{\text{annual}}^* \approx 365\text{ 天}$）。
