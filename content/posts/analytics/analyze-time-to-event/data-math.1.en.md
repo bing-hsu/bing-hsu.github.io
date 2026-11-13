@@ -1,6 +1,6 @@
 +++
 date = '2026-11-13T15:59:26+08:00'
-draft = true
+draft = false
 title = 'Data Characteristics and Math Toolset'
 description = 'Understand time-to-event data, censoring, and latent event times, then connect survival and hazard functions to the modeling approaches behind Cox and AFT models.'
 tags = ['Analytics']

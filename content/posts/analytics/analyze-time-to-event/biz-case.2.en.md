@@ -1,6 +1,6 @@
 +++
 date = '2026-11-13T18:10:37+08:00'
-draft = true
+draft = false
 title = 'Business Cases'
 description = "A roadmap from survival analysis to acquisition investment, customer lifecycle planning, and retention resource allocation."
 tags = ['Analytics']

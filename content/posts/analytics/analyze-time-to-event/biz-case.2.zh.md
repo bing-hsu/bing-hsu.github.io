@@ -1,6 +1,6 @@
 +++
 date = '2026-11-13T18:10:37+08:00'
-draft = true
+draft = false
 title = '商业案例'
 description = "从生存分析（survival analysis）出发，通向获客投资、客户生命周期规划与留存资源配置的路线图。"
 tags = ['数据分析']

@@ -1,6 +1,6 @@
 +++
 date = '2026-11-13T18:10:37+08:00'
-draft = true
+draft = false
 title = "Retention Resources Allocation"
 description = "Frame retention prioritization around near-term churn risk, value at stake, intervention effectiveness, and limited operational capacity."
 tags = ['Analytics']

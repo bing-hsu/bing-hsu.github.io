@@ -1,6 +1,6 @@
 +++
 date = '2026-11-13T18:10:37+08:00'
-draft = true
+draft = false
 title = "Lifetime Phase Characterization"
 description = "Use hazard trajectories to understand customer risk windows, renewal cliffs, and the lead time needed for lifecycle actions."
 tags = ['Analytics']

@@ -1,6 +1,6 @@
 +++
 date = '2026-11-13T18:10:37+08:00'
-draft = true
+draft = false
 title = "Lifetime Value (LTV) and Acquisition Decisions"
 description = "Connect survival estimates to customer lifetime value, acquisition budgets, return thresholds, and payback constraints."
 tags = ['Analytics']
