@@ -1016,3 +1016,62 @@ html:lang(zh) .eyebrow { letter-spacing: 1px; }
   .series-heading > .series-title { font-size: 16px; }
   .series-roadmap nav { font-size: 13px; }
 }
+
+/* Editorially selected posts, independent of publication date. */
+.highlights-grid { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; padding: 4px 4px 18px; scrollbar-width: thin; scrollbar-color: var(--green) transparent; }
+.highlights-grid:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.highlight-card { flex: 0 0 calc((100% - 44px) / 3); scroll-snap-align: start; min-width: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--wash); box-shadow: 0 3px 12px #24332808; transition: transform .2s, box-shadow .2s; }
+.highlight-card-link { display: flex; flex-direction: column; height: 100%; min-height: 340px; box-sizing: border-box; padding: 26px; border-radius: inherit; text-decoration: none; }
+.highlight-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px #24332812; }
+.highlight-card-link:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.highlight-context { color: var(--green); font-size: 9px; margin-bottom: 22px; }
+.highlight-card h3 { font-size: 24px; line-height: 1.3; letter-spacing: -.5px; margin: 0 0 16px; }
+.highlight-description { color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0 0 26px; }
+.highlight-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12px; color: var(--green); }
+.highlight-card-arrow { font-size: 22px; line-height: 1; }
+@media (min-width: 601px) and (max-width: 1000px) {
+  .highlight-card { flex-basis: calc((100% - 22px) / 2); }
+}
+@media (max-width: 600px) {
+  .highlights-grid { gap: 16px; }
+  .highlight-card { flex-basis: 88%; }
+  .highlight-card-link { padding: 24px; min-height: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .highlight-card { transition: none; }
+  .highlight-card:hover { transform: none; }
+}
+
+.highlight-controls { display: flex; gap: 8px; }
+.highlight-controls[hidden] { display: none; }
+.highlight-controls button { border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--green); width: 40px; height: 40px; font: 20px var(--sans); cursor: pointer; }
+.highlight-controls button:disabled { opacity: .35; cursor: default; }
+.highlight-controls button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+/* The hero pairs the introduction with a two-card highlights carousel. */
+.hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 36px; }
+.hero-copy { min-width: 0; }
+.hero h1 { font-size: clamp(40px, 4.2vw, 58px); }
+.hero .highlights-section { min-width: 0; padding-top: 0; }
+.hero .highlights-section .section-heading { margin-bottom: 20px; }
+.hero .highlights-section h2 { font-size: 27px; letter-spacing: -.6px; }
+.hero .highlights-grid { gap: 16px; }
+.hero .highlight-card { flex-basis: calc((100% - 16px) / 2); }
+.hero .highlight-card-link { padding: 20px; min-height: 310px; }
+.hero .highlight-context { font-size: 8px; letter-spacing: 1px; margin-bottom: 18px; overflow-wrap: anywhere; }
+.hero .highlight-card h3 { font-size: 21px; letter-spacing: -.4px; overflow-wrap: anywhere; }
+.hero .highlight-description { font-size: 12px; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.hero .highlight-card-footer { font-size: 11px; }
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .hero .highlight-card-link { min-height: 280px; }
+}
+@media (max-width: 600px) {
+  .hero .highlights-grid { gap: 12px; }
+  .hero .highlight-card { flex-basis: calc((100% - 12px) / 2); }
+  .hero .highlight-card-link { padding: 14px; min-height: 290px; }
+  .hero .highlight-card h3 { font-size: 17px; }
+  .hero .highlight-context { font-size: 7px; letter-spacing: .5px; }
+  .hero .highlight-description { font-size: 11px; }
+  .hero .highlight-card-footer { gap: 6px; font-size: 10px; }
+}

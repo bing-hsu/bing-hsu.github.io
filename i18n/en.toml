@@ -306,3 +306,18 @@ other = "Next in series →"
 
 [seriesPlanned]
 other = "Planned"
+
+[highlights]
+other = "Highlights"
+
+[highlightsIntro]
+other = "Selected writing"
+
+[highlightRead]
+other = "Read the post"
+
+[highlightPrevious]
+other = "Previous highlights"
+
+[highlightNext]
+other = "Next highlights"

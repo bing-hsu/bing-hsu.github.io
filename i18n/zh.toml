@@ -306,3 +306,18 @@ other = "系列下一篇 →"
 
 [seriesPlanned]
 other = "待发布"
+
+[highlights]
+other = "精选文章"
+
+[highlightsIntro]
+other = "值得一读"
+
+[highlightRead]
+other = "阅读文章"
+
+[highlightPrevious]
+other = "上一张精选文章"
+
+[highlightNext]
+other = "下一张精选文章"

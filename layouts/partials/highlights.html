@@ -1,0 +1,22 @@
+{{ $selected := slice }}
+{{ range where (where .Site.RegularPages "Section" "posts") "Params.highlight" true }}
+  {{ $selected = $selected | append (dict "page" . "order" (.Params.highlightOrder | default 100)) }}
+{{ end }}
+{{ with $selected }}
+<section class="writing-section highlights-section" data-highlight-carousel aria-labelledby="highlights-title">
+  <div class="section-heading"><div><p class="eyebrow">{{ i18n "highlightsIntro" }}</p><h2 id="highlights-title">{{ i18n "highlights" }}<span class="accent">.</span></h2></div><div class="highlight-controls" hidden><button type="button" data-carousel-previous aria-controls="highlights-track" aria-label="{{ i18n "highlightPrevious" }}">←</button><button type="button" data-carousel-next aria-controls="highlights-track" aria-label="{{ i18n "highlightNext" }}">→</button></div></div>
+  <div class="highlights-grid" id="highlights-track" tabindex="0" role="region" aria-label="{{ i18n "highlights" }}">
+  {{ range sort . "order" }}{{ with .page }}
+    <article class="highlight-card">
+      <a class="highlight-card-link" href="{{ .RelPermalink }}">
+      <p class="eyebrow highlight-context">{{ .Params.seriesTitle | default (partial "topic.html" .) }}</p>
+      <h3>{{ .Title }}</h3>
+      <p class="highlight-description">{{ .Description | default (.Summary | plainify | truncate 180) }}</p>
+      <span class="highlight-card-footer"><span>{{ i18n "highlightRead" }}</span><span class="highlight-card-arrow" aria-hidden="true">↗</span></span>
+      </a>
+    </article>
+  {{ end }}{{ end }}
+  </div>
+</section>
+<script defer src="{{ "js/highlights.js" | relURL }}"></script>
+{{ end }}

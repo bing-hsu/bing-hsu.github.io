@@ -1,6 +1,8 @@
 +++
 date = '2026-11-13T23:25:39+08:00'
 draft = false
+highlight = true
+highlightOrder = 2
 title = '最大似然估计'
 description = '从观测数据出发逆向推理，寻找最有可能生成这组数据的参数。'
 tags = ['数据分析']

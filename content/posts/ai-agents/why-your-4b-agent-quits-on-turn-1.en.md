@@ -2,6 +2,8 @@
 title = 'Why Your Agent on a 4B Local Model Quits on Turn 1'
 date = '2026-10-30T9:00:00+08:00'
 draft = false
+highlight = true
+highlightOrder = 3
 translationKey = 'why-your-4b-agent-quits-on-turn-1'
 tags = ['AI Agents']
 description = 'Why a 4B local model quits an agent loop on turn 1: provider-enforced schemas lock out tool calls, while unconstrained runs drift back into prose. The context-length mechanics behind it, plus practical mitigations for small models.'

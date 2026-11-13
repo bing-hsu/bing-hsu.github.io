@@ -1,6 +1,8 @@
 +++
 date = '2026-11-13T23:25:39+08:00'
 draft = false
+highlight = true
+highlightOrder = 2
 title = 'Maximum Likelihood Estimation'
 description = 'Working backward from observed data to find the parameters that most likely produced that data.'
 tags = ['Analytics']

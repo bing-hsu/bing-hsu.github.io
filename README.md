@@ -112,3 +112,22 @@ text instead of dead links.
 **Analyze Time-to-Event** contains chapter 1, Data and Math Toolset; chapter 2,
 Business Cases; and cases 2.1–2.3 under chapter 2. Both original chapter URLs and
 the older objective anchors on chapter 2 are preserved.
+
+## Homepage highlights
+
+Set `highlight = true` in a post's front matter to pin it to the homepage's
+Highlights section. Use `highlightOrder = 1`, `2`, etc. to control the order;
+lower numbers appear first (unspecified order defaults to 100). Each language
+selects its own published posts, so add the fields to both versions when paired.
+Highlighted posts also remain in the normal chronological archive and recent list.
+The section is hidden when no built posts are highlighted.
+
+Highlights use a native horizontal scroll carousel with scroll snapping. Swipe,
+use the keyboard, or use the previous/next buttons. Buttons require JavaScript;
+the cards remain scrollable without it. No automatic rotation is used.
+
+Time-to-event filenames follow `[chapter].[short-name].[lang].md`, including
+subsections such as `2.1.lifetime-value.en.md`. Chapter 0 is the bilingual series
+introduction and highlighted entry point. Existing chapters retain their URLs
+through explicit `slug` fields; changing a source filename does not require
+changing its published route. The roadmap and reading navigation include chapter 0.

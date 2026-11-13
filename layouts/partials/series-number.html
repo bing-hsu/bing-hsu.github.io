@@ -1,1 +1,1 @@
-{{- with .Params.seriesChapter -}}{{ . }}{{ with $.Params.seriesSection }}.{{ . }}{{ end }}{{- end -}}
+{{- if isset .Params "serieschapter" -}}{{ .Params.seriesChapter }}{{ with .Params.seriesSection }}.{{ . }}{{ end }}{{- end -}}

@@ -2,6 +2,8 @@
 title = '为什么使用 4B 本地模型的 Agent 第一轮就退出了？'
 date = '2026-10-30T9:00:00+08:00'
 draft = false
+highlight = true
+highlightOrder = 3
 translationKey = 'why-your-4b-agent-quits-on-turn-1'
 tags = ['AI Agents']
 description = '为什么 4B 本地模型会在 Agent 循环的第一轮就退出？从提供方强制执行的 Schema、工具调用与终止条件，到小模型的上下文负担，拆解两种失败现象及应对思路。'
