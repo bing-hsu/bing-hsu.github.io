@@ -8,6 +8,8 @@ translationKey = 'dataset-level-notation'
 math = true
 +++
 
+## The Full Form
+
 $$\mathbf{Y} = \mathbf{1}_n \mu + \mathbf{X} \boldsymbol{\beta} + \sigma \boldsymbol{\epsilon}$$
 
 With $k$ covariates / features and $n$ instances.
@@ -112,4 +114,3 @@ $$
 
 &= \begin{pmatrix} 5.30 \\ 5.60 \\ 4.95 \end{pmatrix} \end{aligned}
 $$
-
