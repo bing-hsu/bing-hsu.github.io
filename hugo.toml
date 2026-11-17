@@ -27,7 +27,6 @@ defaultContentLanguageInSubdir = false
 
 [params.contact]
   email = 'bingxug@gmail.com'
-  wechatQR = 'img/wechat-qr.jpeg'
 
 # Social Tags
 

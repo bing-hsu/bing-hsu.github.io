@@ -241,18 +241,6 @@ other = "Have a business problem in mind, or an idea to share? I’d love to hea
 [email]
 other = "Email"
 
-[wechat]
-other = "WeChat"
-
-[wechatHint]
-other = "Scan with WeChat to add me, or open the image to save it."
-
-[wechatAlt]
-other = "Bertram’s WeChat contact QR code"
-
-[openQR]
-other = "Open full-size QR code ↗"
-
 [diagramData]
 other = "DATA"
 

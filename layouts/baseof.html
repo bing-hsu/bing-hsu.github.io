@@ -14,7 +14,7 @@
   </nav>{{ partial "languages.html" . }}</div>
 </header>
 <main id="main">{{ block "main" . }}{{ end }}</main>
-<footer class="site-footer"><div><a class="footer-name" href="{{ .Site.Home.RelPermalink }}">bertram.</a><p>{{ i18n "footer" }}</p></div><nav aria-label="{{ i18n "elsewhere" }}">{{ range .Site.Params.social }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ end }}<a href="mailto:{{ .Site.Params.contact.email }}">{{ i18n "email" }} ↗</a><a href="{{ "about/" | relLangURL }}#contact">{{ i18n "wechat" }}</a><a href="{{ "index.xml" | relLangURL }}">RSS ↗</a></nav><span class="footer-note">{{ i18n "built" }}</span></footer>
+<footer class="site-footer"><div><a class="footer-name" href="{{ .Site.Home.RelPermalink }}">bertram.</a><p>{{ i18n "footer" }}</p></div><nav aria-label="{{ i18n "elsewhere" }}">{{ range .Site.Params.social }}<a href="{{ .url }}">{{ .name }} ↗</a>{{ end }}<a href="mailto:{{ .Site.Params.contact.email }}">{{ i18n "email" }} ↗</a><a href="{{ "index.xml" | relLangURL }}">RSS ↗</a></nav><span class="footer-note">{{ i18n "built" }}</span></footer>
 </div>
 </body>
 </html>

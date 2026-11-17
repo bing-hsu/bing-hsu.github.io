@@ -241,18 +241,6 @@ other = "有业务问题想一起琢磨，或者有新想法想交流？欢迎�
 [email]
 other = "邮箱"
 
-[wechat]
-other = "微信"
-
-[wechatHint]
-other = "用微信扫描二维码添加我，也可以打开原图保存。"
-
-[wechatAlt]
-other = "Bertram 的微信联系二维码"
-
-[openQR]
-other = "打开二维码原图 ↗"
-
 [diagramData]
 other = "数据"
 

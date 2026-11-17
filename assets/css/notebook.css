@@ -919,9 +919,6 @@ html:lang(zh) .eyebrow { letter-spacing: 1px; }
 }
 
 .contact-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 296px);
-  gap: 36px;
   border-top: 1px solid var(--line);
   padding-top: 36px;
   margin-top: 44px;
@@ -931,14 +928,7 @@ html:lang(zh) .eyebrow { letter-spacing: 1px; }
 .contact-copy h3 { font-size: 12px; font-weight: 600; margin: 25px 0 8px; }
 .contact-copy p { font-size: 14px; color: var(--muted); }
 .contact-email { color: var(--green); text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
-.wechat-qr { margin: 0; }
-.wechat-qr img { display: block; width: 100%; height: auto; background: white; }
-.wechat-qr figcaption { margin-top: 12px; text-align: center; }
 .site-footer nav { flex-wrap: wrap; }
-@media (max-width: 600px) {
-  .contact-section { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .wechat-qr { width: 100%; max-width: 296px; }
-}
 
 /* Labels remain readable independently of the scaled network illustration. */
 .diagram-stages {
