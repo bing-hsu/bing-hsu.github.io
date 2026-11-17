@@ -1017,61 +1017,58 @@ html:lang(zh) .eyebrow { letter-spacing: 1px; }
   .series-roadmap nav { font-size: 13px; }
 }
 
-/* Editorially selected posts, independent of publication date. */
-.highlights-grid { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; padding: 4px 4px 18px; scrollbar-width: thin; scrollbar-color: var(--green) transparent; }
+/* Editorially selected posts in a native vertical scroller. */
+.highlights-grid { display: flex; flex-direction: column; gap: 16px; max-height: 448px; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y proximity; scroll-padding-block: 4px; padding: 4px 8px 4px 4px; scrollbar-width: thin; scrollbar-color: var(--green) transparent; }
 .highlights-grid:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
-.highlight-card { flex: 0 0 calc((100% - 44px) / 3); scroll-snap-align: start; min-width: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--wash); box-shadow: 0 3px 12px #24332808; transition: transform .2s, box-shadow .2s; }
-.highlight-card-link { display: flex; flex-direction: column; height: 100%; min-height: 340px; box-sizing: border-box; padding: 26px; border-radius: inherit; text-decoration: none; }
-.highlight-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px #24332812; }
-.highlight-card-link:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
-.highlight-context { color: var(--green); font-size: 9px; margin-bottom: 22px; }
-.highlight-card h3 { font-size: 24px; line-height: 1.3; letter-spacing: -.5px; margin: 0 0 16px; }
-.highlight-description { color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0 0 26px; }
-.highlight-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12px; color: var(--green); }
-.highlight-card-arrow { font-size: 22px; line-height: 1; }
-@media (min-width: 601px) and (max-width: 1000px) {
-  .highlight-card { flex-basis: calc((100% - 22px) / 2); }
-}
-@media (max-width: 600px) {
-  .highlights-grid { gap: 16px; }
-  .highlight-card { flex-basis: 88%; }
-  .highlight-card-link { padding: 24px; min-height: 300px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .highlight-card { transition: none; }
-  .highlight-card:hover { transform: none; }
-}
-
+.highlight-card { flex: 0 0 auto; height: 210px; min-width: 0; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 12px; background: var(--wash); box-shadow: 0 3px 12px #24332808; transition: box-shadow .2s; }
+.highlight-card-link { display: flex; flex-direction: column; height: 100%; box-sizing: border-box; padding: 18px 20px; border-radius: inherit; text-decoration: none; }
+.highlight-card:hover { box-shadow: 0 6px 18px #24332812; }
+.highlight-card-link:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.highlight-context { color: var(--green); font-size: 8px; letter-spacing: 1px; margin-bottom: 10px; overflow-wrap: anywhere; }
+.highlight-card h3 { font-size: 20px; line-height: 1.3; letter-spacing: -.4px; margin: 0 0 10px; overflow-wrap: anywhere; }
+.highlight-description { color: var(--muted); font-size: 12px; line-height: 1.65; margin: 0 0 12px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.highlight-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 11px; color: var(--green); }
+.highlight-card-arrow { font-size: 20px; line-height: 1; }
 .highlight-controls { display: flex; gap: 8px; }
 .highlight-controls[hidden] { display: none; }
 .highlight-controls button { border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--green); width: 40px; height: 40px; font: 20px var(--sans); cursor: pointer; }
 .highlight-controls button:disabled { opacity: .35; cursor: default; }
 .highlight-controls button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 
-/* The hero pairs the introduction with a two-card highlights carousel. */
+/* The hero pairs the introduction with a vertically scrolling highlights stack. */
 .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 36px; }
 .hero-copy { min-width: 0; }
 .hero h1 { font-size: clamp(40px, 4.2vw, 58px); }
 .hero .highlights-section { min-width: 0; padding-top: 0; }
 .hero .highlights-section .section-heading { margin-bottom: 20px; }
 .hero .highlights-section h2 { font-size: 27px; letter-spacing: -.6px; }
-.hero .highlights-grid { gap: 16px; }
-.hero .highlight-card { flex-basis: calc((100% - 16px) / 2); }
-.hero .highlight-card-link { padding: 20px; min-height: 310px; }
-.hero .highlight-context { font-size: 8px; letter-spacing: 1px; margin-bottom: 18px; overflow-wrap: anywhere; }
-.hero .highlight-card h3 { font-size: 21px; letter-spacing: -.4px; overflow-wrap: anywhere; }
-.hero .highlight-description { font-size: 12px; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-.hero .highlight-card-footer { font-size: 11px; }
 @media (max-width: 1000px) {
   .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; }
-  .hero .highlight-card-link { min-height: 280px; }
 }
 @media (max-width: 600px) {
-  .hero .highlights-grid { gap: 12px; }
-  .hero .highlight-card { flex-basis: calc((100% - 12px) / 2); }
-  .hero .highlight-card-link { padding: 14px; min-height: 290px; }
-  .hero .highlight-card h3 { font-size: 17px; }
-  .hero .highlight-context { font-size: 7px; letter-spacing: .5px; }
-  .hero .highlight-description { font-size: 11px; }
-  .hero .highlight-card-footer { gap: 6px; font-size: 10px; }
+  .highlight-card-link { padding: 16px; }
+  .highlight-card h3 { font-size: 18px; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .highlight-card { transition: none; }
+}
+@media print {
+  .highlights-grid { display: block; max-height: none; overflow: visible; }
+  .highlight-card { height: auto; margin-bottom: 16px; break-inside: avoid; }
+  .highlight-controls { display: none; }
+}
+
+/* Compact article figures retain click-to-enlarge support. */
+.prose .article-image-grid { display: grid; grid-template-columns: repeat(var(--image-columns, 3), minmax(0, 1fr)); gap: 16px; margin: 24px 0; }
+.prose .article-image-grid.grid-cols-1 { --image-columns: 1; }
+.prose .article-image-grid.grid-cols-2 { --image-columns: 2; }
+.prose .article-image-grid.grid-cols-3 { --image-columns: 3; }
+.prose .article-image-grid.grid-cols-4 { --image-columns: 4; }
+.prose .article-image-grid.grid-cols-5 { --image-columns: 5; }
+.prose .article-image-grid.grid-cols-6 { --image-columns: 6; }
+.prose .article-image-grid figure { min-width: 0; margin: 0; }
+.prose .article-image-grid img { display: block; width: 100%; height: auto; margin: 0; }
+.prose .article-image-grid .image-zoom-trigger { display: block; width: 100%; }
+.prose .article-image-grid figcaption { font-size: 12px; color: var(--muted); text-align: center; margin-top: 8px; }
+@media (max-width: 900px) { .prose .article-image-grid:not(.grid-cols-1) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .prose .article-image-grid { grid-template-columns: minmax(0, 1fr); } }

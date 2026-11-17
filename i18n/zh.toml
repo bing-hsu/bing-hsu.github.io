@@ -317,7 +317,7 @@ other = "值得一读"
 other = "阅读文章"
 
 [highlightPrevious]
-other = "上一张精选文章"
+other = "向上滚动精选文章"
 
 [highlightNext]
-other = "下一张精选文章"
+other = "向下滚动精选文章"

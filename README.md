@@ -122,8 +122,9 @@ selects its own published posts, so add the fields to both versions when paired.
 Highlighted posts also remain in the normal chronological archive and recent list.
 The section is hidden when no built posts are highlighted.
 
-Highlights use a native horizontal scroll carousel with scroll snapping. Swipe,
-use the keyboard, or use the previous/next buttons. Buttons require JavaScript;
+Highlights use a native vertical scroll stack with scroll snapping, showing
+two compact cards at a time. Scroll, swipe, use the keyboard, or use the up/down
+buttons. Buttons require JavaScript;
 the cards remain scrollable without it. No automatic rotation is used.
 
 Time-to-event filenames follow `[chapter].[short-name].[lang].md`, including
@@ -131,3 +132,23 @@ subsections such as `2.1.lifetime-value.en.md`. Chapter 0 is the bilingual serie
 introduction and highlighted entry point. Existing chapters retain their URLs
 through explicit `slug` fields; changing a source filename does not require
 changing its published route. The roadmap and reading navigation include chapter 0.
+
+## Article image galleries
+
+Use `article-image-grid` with `grid-cols-1` through `grid-cols-6` to choose the
+number of images per row. For example:
+
+```html
+<div class="article-image-grid grid-cols-3">
+  <figure>
+    <img src="/img/analytics/example.png" alt="Describe the plot" loading="lazy" />
+    <figcaption>Plot caption</figcaption>
+  </figure>
+</div>
+```
+
+These are project-owned utility classes, with no Tailwind dependency. Without
+a column class, existing galleries default to three columns. At viewport widths
+of 900px or less, galleries use at most two columns; at 600px or less they use
+one. A `grid-cols-1` gallery always stays at one column. The existing image
+viewer continues to provide click-to-enlarge behavior.

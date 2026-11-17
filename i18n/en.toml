@@ -317,7 +317,7 @@ other = "Selected writing"
 other = "Read the post"
 
 [highlightPrevious]
-other = "Previous highlights"
+other = "Scroll highlights up"
 
 [highlightNext]
-other = "Next highlights"
+other = "Scroll highlights down"
